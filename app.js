@@ -1,42 +1,53 @@
-// Registrar componente
-AFRAME.registerComponent('crear', {
+AFRAME.registerComponent('cubos', {
     schema: {
-        color1: { type: 'color', default: '#FF0000' },
-        color2: { type: 'color', default: '#0000FF' },
-        color3: { type: 'color', default: '#4CC3D9' },
-        tamanio: { type: 'number', default: 1.15 }  // Nuevo parámetro para controlar el tamaño de los cubos
+        N: { type: 'number', default: 8 },
+        colores: { type: 'array', default: ['red', 'blue', 'pink'] }
     },
     init: function () {
-        var tamanio = this.data.tamanio;
+        var colores = this.data.colores;
 
-        // Crear el primer cubo con color y tamaño personalizados
-        var cubo1 = document.createElement('a-box');
-        cubo1.setAttribute('position', '0 ' + (0.75 * tamanio) + ' -3'); // Ajustar la posición según el tamaño
-        cubo1.setAttribute('rotation', '0 45 0');
-        cubo1.setAttribute('width', tamanio);
-        cubo1.setAttribute('height', tamanio);
-        cubo1.setAttribute('depth', tamanio);
-        cubo1.setAttribute('color', this.data.color1);
-        this.el.appendChild(cubo1);
+        // Manejador de clic en el componente
+        this.el.addEventListener('click', (event) => {
+            // Obtener la posición del cubo específico que ha sido clicado
+            var prueba = cubo.getAttribute('position');
+            console.log(prueba)
+            //Crea objeto de vector3
+            var position = new THREE.Vector3();
+            //Método de vector3
+            position.setFromMatrixPosition(event.detail.intersection.object.matrixWorld);
 
-        // Crear el segundo cubo encima del primero con color y tamaño personalizados
-        var cubo2 = document.createElement('a-box');
-        cubo2.setAttribute('position', '0 ' + (1.75 * tamanio) + ' -3');
-        cubo2.setAttribute('rotation', '0 45 0');
-        cubo2.setAttribute('width', tamanio);
-        cubo2.setAttribute('height', tamanio);
-        cubo2.setAttribute('depth', tamanio);
-        cubo2.setAttribute('color', this.data.color2);
-        this.el.appendChild(cubo2);
+            // Crear un identificador único para el cubo actual
+            var cuboId = 'cubo-' + position.x + '-' + position.y + '-' + position.z;
 
-        // Crear el tercer cubo encima del segundo con color y tamaño personalizados
-        var cubo3 = document.createElement('a-box');
-        cubo3.setAttribute('position', '0 ' + (2.75 * tamanio) + ' -3');
-        cubo3.setAttribute('rotation', '0 45 0');
-        cubo3.setAttribute('width', tamanio);
-        cubo3.setAttribute('height', tamanio);
-        cubo3.setAttribute('depth', tamanio);
-        cubo3.setAttribute('color', this.data.color3);
-        this.el.appendChild(cubo3);
+            // Buscar si cuboID existe en algun hijo (cubo)
+            var cuboAdicional = this.el.querySelector('[' + cuboId + ']');
+            if (cuboAdicional) {
+                // Si ya tiene un cubo adicional, eliminarlo
+                cuboAdicional.parentNode.removeChild(cuboAdicional);
+            } else {
+                // Si no tiene un cubo adicional, crear uno al lado del cubo clicado
+                var cuboAdicional = document.createElement('a-box');
+                cuboAdicional.setAttribute('position', {
+                    x: position.x + 1.25,
+                    y: position.y,
+                    z: position.z
+                });
+                cuboAdicional.setAttribute('rotation', '0 45 0');
+                cuboAdicional.setAttribute('color', colores[(this.data.N + position.y) % colores.length]);
+                cuboAdicional.setAttribute(cuboId, '');
+                this.el.appendChild(cuboAdicional);
+            }
+        });
+
+        // Crear los cubos iniciales
+        for (var i = 0; i < this.data.N; i++) {
+            var color = colores[i % colores.length];
+            var cubo = document.createElement('a-box');
+            cubo.setAttribute('position', '0 ' + i + ' -3');
+            cubo.setAttribute('rotation', '0 45 0');
+            cubo.setAttribute('color', color);
+            cubo.classList.add('box'); 
+            this.el.appendChild(cubo);
+        }
     }
 });
