@@ -38,5 +38,27 @@ AFRAME.registerComponent('crear', {
         cubo3.setAttribute('depth', tamanio);
         cubo3.setAttribute('color', this.data.color3);
         this.el.appendChild(cubo3);
+
+        // Crear un hijo dentro del primer cubo
+        var hijoDeCubo1 = document.createElement('a-sphere');
+        hijoDeCubo1.setAttribute('position', '0.920 0 0.920'); // A la derecha del cubo
+        hijoDeCubo1.setAttribute('radius', '0.5');
+        hijoDeCubo1.setAttribute('color', '#FF00FF');
+        cubo1.appendChild(hijoDeCubo1); // Añadir como hijo del cubo1
+
+        // Crear un hijo dentro del primer cubo
+        var hijoDeCubo2 = document.createElement('a-sphere');
+        hijoDeCubo2.setAttribute('position', '0.920 0 0.920'); // A la derecha del cubo
+        hijoDeCubo2.setAttribute('radius', '0.5');
+        hijoDeCubo2.setAttribute('color', '#FF00FF');
+        cubo2.appendChild(hijoDeCubo2); // Añadir como hijo del cubo1
+
+        // Crear un hijo dentro del primer cubo
+        var hijoDeCubo3 = document.createElement('a-sphere');
+        hijoDeCubo3.setAttribute('position', '0.920 0 0.920'); // A la derecha del cubo
+        hijoDeCubo3.setAttribute('radius', '0.5');
+        hijoDeCubo3.setAttribute('color', '#FF00FF');
+        cubo3.appendChild(hijoDeCubo3); // Añadir como hijo del cubo1
+        
     }
 });
