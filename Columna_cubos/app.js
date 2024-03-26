@@ -19,17 +19,18 @@ AFRAME.registerComponent('cubos', {
             // Closure para capturar el cubo en cada iteración del bucle
             (function(cubo) {
                 var esferaCreada = false;
+                var colorIndex = colores.indexOf(color);
                 cubo.addEventListener('click', function() {
                     if (!esferaCreada) {
-                    var esfera = document.createElement('a-sphere');
-                    esfera.setAttribute('position', '0.9 0 0.9'); // Posición relativa al cubo
+                    var esfera = document.createElement('a-box');
+                    esfera.setAttribute('position', '0.9 0 0.9');
                     esfera.setAttribute('radius', '0.5');
-                    esfera.setAttribute('color', '#FF00FF');
-                    cubo.appendChild(esfera); // Añadimos la esfera como hijo de este cubo
+                    esfera.setAttribute('color', colores[(colorIndex + 1) % colores.length]); // Obtener el nuevo color del array de colores
+                    cubo.appendChild(esfera);
 
                     esferaCreada = true;
                 } else {
-                        var esfera = cubo.querySelector('a-sphere');
+                        var esfera = cubo.querySelector('a-box');
                         if (esfera) {
                             cubo.removeChild(esfera);
                         }
