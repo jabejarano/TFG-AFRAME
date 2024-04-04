@@ -10,7 +10,7 @@
         <a-assets>
             <a-asset-item id="dino" src="dino.glb"></a-asset-item>
           </a-assets>
-          
+
       <a-box position="-3 0.5 -4" rotation="0 60 0" color="green"
           animation="property: position;
               to: -2 0.5 -4; dur: 1000; loop: true; dir: alternate;">
@@ -31,8 +31,10 @@
       </a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
 
-      <a-entity gltf-model="#dino" position="1.5 0.7 -4" rotation="0 45 0"
-            scale="2 2 2"></a-entity>
+      <a-entity gltf-model="#dino" position="1.8 0.7 -4" rotation="0 45 0"
+            scale="2 2 2"
+            animation="startEvents: click; property: position;
+              from: 1.8 0.7 -4; to: 1.8 1.7 -4; dur: 1000"></a-entity>
 
       <a-entity movement-controls="fly: true" position="0 0 0">
         <a-entity camera position="0 1.6 0" look-controls wasd-controls></a-entity>
