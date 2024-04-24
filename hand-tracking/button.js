@@ -1,5 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('button', {
+  // propiedades texto, ancho, alternante (booleano),audio
     schema: {
       label: {default: 'label'},
       width: {default: 0.11},
@@ -8,6 +9,7 @@ AFRAME.registerComponent('button', {
     },
     init: function () {
       var el = this.el;
+      //Crea entidad representa el texto del botón
       var labelEl = this.labelEl = document.createElement('a-entity');
   
       this.color = '#3a50c5';
@@ -21,6 +23,7 @@ AFRAME.registerComponent('button', {
       });
   
       el.setAttribute('material', {color: this.color});
+      // Añade al botón el componente pressable que el componente responda a eventos de pulsación
       el.setAttribute('pressable', '');
   
       labelEl.setAttribute('position', '0 0 0.02');
@@ -32,14 +35,17 @@ AFRAME.registerComponent('button', {
   
       labelEl.setAttribute('scale', '0.75 0.75 0.75');
       this.el.appendChild(labelEl);
-  
+      
+      // Se vinculan los métodos a 'this' (el componente 'button')
       this.bindMethods();
+      // Se agregan escuchadores de eventos para cambiar el estado del botón
       this.el.addEventListener('stateadded', this.stateChanged);
       this.el.addEventListener('stateremoved', this.stateChanged);
       this.el.addEventListener('pressedstarted', this.onPressedStarted);
       this.el.addEventListener('pressedended', this.onPressedEnded);
     },
-  
+    
+    // Método para vincular métodos al componente 'button'
     bindMethods: function () {
       this.stateChanged = this.stateChanged.bind(this);
       this.onPressedStarted = this.onPressedStarted.bind(this);
