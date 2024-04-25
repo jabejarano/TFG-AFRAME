@@ -9,6 +9,7 @@ AFRAME.registerComponent('size-change', {
       this.onSliderChanged = this.onSliderChanged.bind(this);
     },
   
+    // Ajusta el tamaño de la entidad actual según el valor del slider
     onSliderChanged: function (evt) {
       var scale = evt.detail.value;
       this.el.object3D.scale.set(scale, scale, scale);

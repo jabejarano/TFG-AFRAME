@@ -6,6 +6,7 @@ AFRAME.registerComponent('slider', {
   
     init: function () {
       var trackEl = this.trackEl = document.createElement('a-entity');
+      //crea objeto THREE.Vector3() para almacenar las coordenadas (x,y,z)
       this.localPosition = new THREE.Vector3();
       this.onPinchedMoved = this.onPinchedMoved.bind(this);
   
@@ -51,13 +52,16 @@ AFRAME.registerComponent('slider', {
   
     onPinchedMoved: function (evt) {
       var el = this.el;
+      //inicializa objeto que luego almacenara info relevante del evento (valor deslizador)
       var evtDetail = this.evtDetail;
       var halfWidth = this.data.width / 2;
       var localPosition = this.localPosition;
+      // Se copia la posición global del cilindro al sistema de coordenadas local del slider
       localPosition.copy(evt.detail.position);
       el.object3D.updateMatrixWorld();
       el.object3D.worldToLocal(localPosition);
       if (localPosition.x < -halfWidth || localPosition.x > halfWidth) { return; }
+      //accede a la posiciíon actual del cilindro y la actualizamos en localPosition.x
       this.pickerEl.object3D.position.x = localPosition.x;
       evtDetail.value = (this.pickerEl.object3D.position.x + halfWidth) / this.data.width;
       this.el.emit('sliderchanged', evtDetail);

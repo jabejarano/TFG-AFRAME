@@ -13352,6 +13352,7 @@ var JOINTS = ['wrist', 'thumb-metacarpal', 'thumb-phalanx-proximal', 'thumb-phal
 var WRIST_INDEX = 0;
 var THUMB_TIP_INDEX = 4;
 var INDEX_TIP_INDEX = 9;
+var MIDDLE_TIP_INDEX = 14;
 var PINCH_START_DISTANCE = 0.015;
 var PINCH_END_PERCENTAGE = 0.1;
 
@@ -13413,6 +13414,7 @@ module.exports.Component = registerComponent('hand-tracking-controls', {
       wristRotation: new THREE.Quaternion()
     };
     this.indexTipPosition = new THREE.Vector3();
+    this.middleTipPosition = new THREE.Vector3();
     this.hasPoses = false;
     this.jointPoses = new Float32Array(16 * JOINTS.length);
     this.jointRadii = new Float32Array(JOINTS.length);
@@ -13577,28 +13579,30 @@ module.exports.Component = registerComponent('hand-tracking-controls', {
     var thumbTipPosition = new THREE.Vector3();
     var jointPose = new THREE.Matrix4();
     return function () {
-      var indexTipPosition = this.indexTipPosition;
+      var middleTipPosition = this.middleTipPosition;
       var pinchEventDetail = this.pinchEventDetail;
+      var indexTipPosition = this.indexTipPosition;
       if (!this.hasPoses) {
         return;
       }
       thumbTipPosition.setFromMatrixPosition(jointPose.fromArray(this.jointPoses, THUMB_TIP_INDEX * 16));
+      middleTipPosition.setFromMatrixPosition(jointPose.fromArray(this.jointPoses, MIDDLE_TIP_INDEX * 16));
       indexTipPosition.setFromMatrixPosition(jointPose.fromArray(this.jointPoses, INDEX_TIP_INDEX * 16));
       pinchEventDetail.wristRotation.setFromRotationMatrix(jointPose.fromArray(this.jointPoses, WRIST_INDEX * 16));
-      var distance = indexTipPosition.distanceTo(thumbTipPosition);
+      var distance = middleTipPosition.distanceTo(thumbTipPosition);
       if (distance < PINCH_START_DISTANCE && this.isPinched === false) {
         this.isPinched = true;
         this.pinchDistance = distance;
-        pinchEventDetail.position.copy(indexTipPosition).add(thumbTipPosition).multiplyScalar(0.5);
+        pinchEventDetail.position.copy(middleTipPosition).add(thumbTipPosition).multiplyScalar(0.5);
         this.el.emit('pinchstarted', pinchEventDetail);
       }
       if (distance > this.pinchDistance + this.pinchDistance * PINCH_END_PERCENTAGE && this.isPinched === true) {
         this.isPinched = false;
-        pinchEventDetail.position.copy(indexTipPosition).add(thumbTipPosition).multiplyScalar(0.5);
+        pinchEventDetail.position.copy(middleTipPosition).add(thumbTipPosition).multiplyScalar(0.5);
         this.el.emit('pinchended', pinchEventDetail);
       }
       if (this.isPinched) {
-        pinchEventDetail.position.copy(indexTipPosition).add(thumbTipPosition).multiplyScalar(0.5);
+        pinchEventDetail.position.copy(middleTipPosition).add(thumbTipPosition).multiplyScalar(0.5);
         this.el.emit('pinchmoved', pinchEventDetail);
       }
     };

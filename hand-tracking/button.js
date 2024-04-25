@@ -51,13 +51,15 @@ AFRAME.registerComponent('button', {
       this.onPressedStarted = this.onPressedStarted.bind(this);
       this.onPressedEnded = this.onPressedEnded.bind(this);
     },
-  
-    update: function (oldData) {
+    
+    //Método actualizar dinámicamente el texto de la etiqueta del botón 'label'
+     update: function (oldData) {
       if (oldData.label !== this.data.label) {
         this.labelEl.setAttribute('text', 'value', this.data.label);
       }
     },
-  
+    
+    // Actualiza el estado visual del botón (operador ternario)
     stateChanged: function () {
       var color = this.el.is('pressed') ? 'green' : this.color;
       this.el.setAttribute('material', {color: color});
@@ -66,11 +68,12 @@ AFRAME.registerComponent('button', {
       var depth = this.el.is('pressed') ? 0.02 : this.originalDepth;
       this.el.setAttribute('geometry', {depth: depth});
     },
-  
+    
     onPressedStarted: function () {
       var el = this.el;
       el.setAttribute('material', {color: 'green'});
       el.emit('click');
+      //Alterna entre presionado y no presionado solo si toggleable es true
       if (this.data.toggleable) {
         if (el.is('pressed')) {
           el.removeState('pressed');

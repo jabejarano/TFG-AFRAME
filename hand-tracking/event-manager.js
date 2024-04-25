@@ -4,6 +4,7 @@ AFRAME.registerComponent('event-manager', {
     init: function () {
       this.bindMethods();
   
+        // Guardar en variables los elementos del html
       this.boxGeometryEl = document.querySelector('#boxGeometry');
       this.sphereGeometryEl = document.querySelector('#sphereGeometry');
       this.torusGeometryEl = document.querySelector('#torusGeometry');
@@ -12,7 +13,8 @@ AFRAME.registerComponent('event-manager', {
       this.sphereButtonEl = document.querySelector('#sphereButton');
       this.torusButtonEl = document.querySelector('#torusButton');
       this.darkModeButtonEl = document.querySelector('#darkModeButton');
-  
+      
+      //Variable mapea los nombres de los botones con sus entidades
       this.buttonToGeometry = {
         'boxButton': this.boxGeometryEl,
         'sphereButton': this.sphereGeometryEl,
@@ -23,13 +25,13 @@ AFRAME.registerComponent('event-manager', {
       this.sphereButtonEl.addEventListener('click', this.onClick);
       this.torusButtonEl.addEventListener('click', this.onClick);
       this.darkModeButtonEl.addEventListener('click', this.onClick);
-      this.boxButtonEl.addState('pressed');
+      this.sphereButtonEl.addState('pressed');
     },
   
     bindMethods: function () {
       this.onClick = this.onClick.bind(this);
     },
-  
+    // (evt) al principio de la función simplemente indica que esta función toma un parámetro llamado evt, que representa el evento que ha ocurrido
     onClick: function (evt) {
       var targetEl = evt.target;
       if (targetEl === this.boxButtonEl ||
