@@ -25,6 +25,7 @@ AFRAME.registerComponent('event-manager', {
       this.sphereButtonEl.addEventListener('click', this.onClick);
       this.torusButtonEl.addEventListener('click', this.onClick);
       this.darkModeButtonEl.addEventListener('click', this.onClick);
+      //Botón de la escena que empieza "presionado"
       this.sphereButtonEl.addState('pressed');
     },
   
