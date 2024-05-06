@@ -4,7 +4,6 @@ AFRAME.registerComponent('button', {
     schema: {
       label: {default: 'label'},
       width: {default: 0.16},
-      toggleable: {default: false},
       soundSrc: {default: ''}
     },
     init: function () {
