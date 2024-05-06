@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hand Tracking! • A-Frame</title>
+    <meta name="description" content="Hand Tracking! • A-Frame">
+    <script src="aframe-master.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.4/dist/aframe-environment-component.min.js"></script>
+    <script src="button.js"></script>
+    <script src="menu.js"></script>
+    <script src="pressable.js"></script>
+    <script src="event-manager.js"></script>
+  </head>
+  <body>
+    <!-- environment: componente para configurar el entorno de la escena -->
+    <a-scene environment>
+      <a-assets>
+        <audio id="boton" src="sounds/boton.mp3"></audio>
+        <audio id="mario" src="sounds/mario-bros.mp3"></audio>
+        <audio id="mario-jump" src="sounds/mario-bros-jump.mp3"></audio>
+      </a-assets>
+      <a-entity
+        id="boxRed"
+        position="-0.025 1.25 -0.3"
+        rotation="45 45 0"
+        geometry="primitive: box; height: 0.6; width: 0.6; depth: 0.6"
+        material="color: red"
+        visible="false"
+        scale="0.3 0.3 0.3"
+      ></a-entity>
+       <a-entity
+        id="boxGreen"
+        position="-0.025 1.25 -0.3"
+        rotation="45 45 0"
+        geometry="primitive: box; height: 0.6; width: 0.6; depth: 0.6"
+        material="color: green"
+        scale="0.3 0.3 0.3"
+      ></a-entity>
+       <a-entity
+        id="boxWhite"
+        position="-0.025 1.25 -0.3"
+        rotation="45 45 0"
+        geometry="primitive: box; height: 0.6; width: 0.6; depth: 0.6"
+        material="color: white"
+        scale="0.3 0.3 0.3"
+        visible="false"
+      ></a-entity>
+      <a-entity
+        id="boxYellow"
+        position="-0.025 1.25 -0.3"
+        rotation="45 45 0"
+        geometry="primitive: box; height: 0.6; width: 0.6; depth: 0.6"
+        material="color: yellow"
+        visible="false"
+        scale="0.3 0.3 0.3"
+      ></a-entity>
+      <a-entity id="menu" menu position="0 1.5 -0.5" rotation="0 0 0" event-manager>
+        <a-entity id="boxButtonRed" button="label: Box Red; soundSrc: #boton" position="-0.10 0.10 0"></a-entity>
+        <a-entity id="boxButtonGreen" button="label: Box Green; soundSrc: #mario" position="-0.10 -0.05 0"></a-entity>
+        <a-entity id="boxButtonWhite" button="label: Box White; soundSrc: #mario-jump" position="0.10 0.10 0"></a-entity>
+        <a-entity id="boxButtonYellow" button="label: Box Yellow" position="0.10 -0.05 0"></a-entity>
+      </a-entity>
+      <a-entity hand-tracking-controls="hand: left"></a-entity>
+      <a-entity hand-tracking-controls="hand: right"></a-entity>
+    </a-scene>
+  </body>
+</html>
