@@ -52,12 +52,6 @@ AFRAME.registerComponent('button', {
       this.onPressedEnded = this.onPressedEnded.bind(this);
     },
     
-    //Método actualizar dinámicamente el texto de la etiqueta del botón 'label'
-     update: function (oldData) {
-      if (oldData.label !== this.data.label) {
-        this.labelEl.setAttribute('text', 'value', this.data.label);
-      }
-    },
     
     // Actualiza el estado visual del botón (operador ternario)
     stateChanged: function () {
@@ -73,14 +67,6 @@ AFRAME.registerComponent('button', {
       var el = this.el;
       el.setAttribute('material', {color: 'green'});
       el.emit('click');
-      //Alterna entre presionado y no presionado solo si toggleable es true
-      if (this.data.toggleable) {
-        if (el.is('pressed')) {
-          el.removeState('pressed');
-        } else {
-          el.addState('pressed');
-        }
-      }
 
       // Disminuir la profundidad del botón cuando se presiona
       el.setAttribute('geometry', {
