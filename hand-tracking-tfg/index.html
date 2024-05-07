@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Hand Tracking! • A-Frame</title>
     <meta name="description" content="Hand Tracking! • A-Frame">
-    <script src="aframe-master.js"></script>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.4/dist/aframe-environment-component.min.js"></script>
     <script src="button.js"></script>
     <script src="menu.js"></script>
@@ -62,16 +62,16 @@
       scale="0.3 0.3 0.3"
       visible="false"
     ></a-entity>
-      <a-entity id="menu" menu position="0 1.5 -0.5" rotation="0 0 0" event-manager>
-        <a-entity id="boxButtonRed" button="label: Box Red; soundSrc: #boton" position="-0.10 0.10 0"></a-entity>
-        <a-entity id="boxButtonGreen" button="label: Box Green; soundSrc: #mario" position="-0.10 -0.05 0"></a-entity>
-        <a-entity id="boxButtonWhite" button="label: Box White; soundSrc: #mario-jump" position="0.10 0.10 0"></a-entity>
-        <a-entity id="boxButtonYellow" button="label: Box Yellow" position="0.10 -0.05 0"></a-entity>
-        <a-entity id="dinoButton" button="label: Dino; soundSrc: #boton" position="0 0.02 0"></a-entity>
-      </a-entity>
+    <a-entity id="menu" menu position="0 1.5 -0.5" rotation="0 0 0" event-manager>
+      <a-entity id="boxButtonRed" button="label: Box Red; soundSrc: #boton" position="-0.10 0.10 0" data-button-raycastable></a-entity>
+      <a-entity id="boxButtonGreen" button="label: Box Green; soundSrc: #mario" position="-0.10 -0.05 0" data-button-raycastable></a-entity>
+      <a-entity id="boxButtonWhite" button="label: Box White; soundSrc: #mario-jump" position="0.10 0.10 0" data-button-raycastable></a-entity>
+      <a-entity id="boxButtonYellow" button="label: Box Yellow" position="0.10 -0.05 0" data-button-raycastable></a-entity>
+      <a-entity id="dinoButton" button="label: Dino; soundSrc: #boton" position="0 0.02 0" data-button-raycastable></a-entity>
+    </a-entity>
       <a-entity hand-tracking-controls="hand: left"></a-entity>
       <a-entity hand-tracking-controls="hand: right"></a-entity>
-      <a-entity cursor__mouse = "rayOrigin: mouse"></a-entity>
+      <a-entity cursor__mouse="rayOrigin: mouse" raycaster="objects: [data-button-raycastable]"></a-entity>
     </a-scene>
   </body>
 </html>

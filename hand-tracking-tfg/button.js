@@ -42,6 +42,9 @@ AFRAME.registerComponent('button', {
       this.el.addEventListener('stateremoved', this.stateChanged);
       this.el.addEventListener('pressedstarted', this.onPressedStarted);
       this.el.addEventListener('pressedended', this.onPressedEnded);
+
+      // Define los objetos para el raycaster
+    el.setAttribute('raycaster', { objects: '[data-button-raycastable]' });
     },
     
     // Método para vincular métodos al componente 'button'
