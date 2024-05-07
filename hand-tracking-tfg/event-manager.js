@@ -9,24 +9,28 @@ AFRAME.registerComponent('event-manager', {
     this.boxGeometryGreenEl = document.querySelector('#boxGreen');
     this.boxGeometryWhiteEl = document.querySelector('#boxWhite');
     this.boxGeometryYellowEl = document.querySelector('#boxYellow');
+    this.dinoModelEl = document.querySelector('#dinoModel');
 
     this.boxButtonRedEl = document.querySelector('#boxButtonRed');
     this.boxButtonGreenEl = document.querySelector('#boxButtonGreen');
     this.boxButtonWhiteEl = document.querySelector('#boxButtonWhite');
     this.boxButtonYellowEl = document.querySelector('#boxButtonYellow');
+    this.dinoButtonEl = document.querySelector('#dinoButton');
     
     // Variable que mapea los nombres de los botones con sus entidades
     this.buttonToGeometry = {
       'boxButtonRed': this.boxGeometryRedEl,
       'boxButtonGreen': this.boxGeometryGreenEl,
       'boxButtonWhite': this.boxGeometryWhiteEl,
-      'boxButtonYellow': this.boxGeometryYellowEl
+      'boxButtonYellow': this.boxGeometryYellowEl,
+      'dinoButton': this.dinoModelEl
     };
 
     this.boxButtonRedEl.addEventListener('click', this.onClick);
     this.boxButtonGreenEl.addEventListener('click', this.onClick);
     this.boxButtonWhiteEl.addEventListener('click', this.onClick);
     this.boxButtonYellowEl.addEventListener('click', this.onClick);
+    this.dinoButtonEl.addEventListener('click', this.onClick);
     // Botón de la escena que empieza "presionado"
     this.boxButtonGreenEl.addState('pressed');
   },
@@ -40,16 +44,19 @@ AFRAME.registerComponent('event-manager', {
     if (targetEl === this.boxButtonRedEl ||
         targetEl === this.boxButtonGreenEl ||
         targetEl === this.boxButtonWhiteEl ||
-        targetEl === this.boxButtonYellowEl) {
+        targetEl === this.boxButtonYellowEl ||
+        targetEl === this.dinoButtonEl) {
       this.boxButtonRedEl.removeState('pressed');
       this.boxButtonGreenEl.removeState('pressed');
       this.boxButtonWhiteEl.removeState('pressed');
       this.boxButtonYellowEl.removeState('pressed');
+      this.dinoButtonEl.removeState('pressed');
       
       this.boxGeometryRedEl.object3D.visible = false;
       this.boxGeometryGreenEl.object3D.visible = false;
       this.boxGeometryWhiteEl.object3D.visible = false;
       this.boxGeometryYellowEl.object3D.visible = false;
+      this.dinoModelEl.object3D.visible = false;
       
       this.buttonToGeometry[targetEl.id].object3D.visible = true;
     }

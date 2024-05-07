@@ -18,6 +18,7 @@
         <audio id="boton" src="sounds/boton.mp3"></audio>
         <audio id="mario" src="sounds/mario-bros.mp3"></audio>
         <audio id="mario-jump" src="sounds/mario-bros-jump.mp3"></audio>
+        <a-asset-item id="dino" src="figuras3d/dino.glb"></a-asset-item> <!-- Modelo GLTF del Dino -->
       </a-assets>
       <a-entity
         id="boxRed"
@@ -54,11 +55,19 @@
         visible="false"
         scale="0.3 0.3 0.3"
       ></a-entity>
+      <a-entity
+      id="dinoModel"
+      gltf-model="#dino"
+      position="-0.025 1.25 -0.3"
+      scale="0.3 0.3 0.3"
+      visible="false"
+    ></a-entity>
       <a-entity id="menu" menu position="0 1.5 -0.5" rotation="0 0 0" event-manager>
         <a-entity id="boxButtonRed" button="label: Box Red; soundSrc: #boton" position="-0.10 0.10 0"></a-entity>
         <a-entity id="boxButtonGreen" button="label: Box Green; soundSrc: #mario" position="-0.10 -0.05 0"></a-entity>
         <a-entity id="boxButtonWhite" button="label: Box White; soundSrc: #mario-jump" position="0.10 0.10 0"></a-entity>
         <a-entity id="boxButtonYellow" button="label: Box Yellow" position="0.10 -0.05 0"></a-entity>
+        <a-entity id="dinoButton" button="label: Dino; soundSrc: #boton" position="0 0.02 0"></a-entity>
       </a-entity>
       <a-entity hand-tracking-controls="hand: left"></a-entity>
       <a-entity hand-tracking-controls="hand: right"></a-entity>
