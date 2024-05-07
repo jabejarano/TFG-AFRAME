@@ -13,7 +13,7 @@ AFRAME.registerComponent('pinchable', {
       sceneEl.addEventListener('pinchended', this.onPinchEnded);
       sceneEl.addEventListener('pinchmoved', this.onPinchMoved);
     },
-  
+ //Asociar las funciones a la instancia de este componente
     bindMethods: function () {
       this.onPinchStarted = this.onPinchStarted.bind(this);
       this.onPinchEnded = this.onPinchEnded.bind(this);

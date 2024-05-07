@@ -5,7 +5,7 @@ AFRAME.registerComponent('menu', {
       var menuBackGroundEl = document.createElement('a-entity');
       menuBackGroundEl.setAttribute('geometry', {
         primitive: 'plane',
-        width: 0.5,
+        width: 0.6,
         height: 0.3,
         depth: 0.01,
       });
