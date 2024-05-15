@@ -1,69 +1,58 @@
 /* global AFRAME, THREE */
 AFRAME.registerComponent('slider', {
-    schema: {
-      width: { default: 0.5 }
-    },
-  
-    init: function () {
-      var trackEl = this.trackEl = document.createElement('a-entity');
-      //crea objeto THREE.Vector3() para almacenar las coordenadas (x,y,z)
-      this.localPosition = new THREE.Vector3();
-      this.onPinchedMoved = this.onPinchedMoved.bind(this);
-  
-      trackEl.setAttribute('geometry', {
-        primitive: 'box',
-        height: 0.01,
-        width: this.data.width,
-        depth: 0.01
-      });
-  
-      trackEl.setAttribute('material', {
-        color: 'white'
-      });
-  
-      this.el.appendChild(trackEl);
-  
-      var pickerEl = this.pickerEl = document.createElement('a-entity');
-  
-      pickerEl.setAttribute('geometry', {
-        primitive: 'cylinder',
-        radius: 0.02,
-        height: 0.05
-      });
-  
-      pickerEl.setAttribute('material', {
-        color: '#3a50c5'
-      });
-  
-      pickerEl.setAttribute('pinchable', {
-        pinchDistance: 0.05
-      });
-  
-      pickerEl.setAttribute('rotation', {
-        x: 90, y: 0, z: 0
-      });
-  
-      pickerEl.setAttribute('color-change', '');
-  
-      this.el.appendChild(pickerEl);
-  
-      pickerEl.addEventListener('pinchedmoved', this.onPinchedMoved);
-    },
-  
-    onPinchedMoved: function (evt) {
-      var el = this.el;
-      //inicializa objeto que luego almacenara info relevante del evento (valor deslizador)
-      var evtDetail = this.evtDetail;
-      var halfWidth = this.data.width / 2;
-      var localPosition = this.localPosition;
-      // Se copia la posición global del cilindro al sistema de coordenadas local del slider
-      localPosition.copy(evt.detail.position);
-      el.object3D.updateMatrixWorld();
-      el.object3D.worldToLocal(localPosition);
-      if (localPosition.x < -halfWidth || localPosition.x > halfWidth) { return; }
-      //accede a la posiciíon actual del cilindro y la actualizamos en localPosition.x
-      this.pickerEl.object3D.position.x = localPosition.x;
-      evtDetail.value = (this.pickerEl.object3D.position.x + halfWidth) / this.data.width;
-      this.el.emit('sliderchanged', evtDetail);
-    }
-  });
+  schema: {
+    width: { default: 0.5 }
+  },
+
+  init: function () {
+    var trackEl = this.trackEl = document.createElement('a-entity');
+    this.localPosition = new THREE.Vector3();
+    this.onPinchedMoved = this.onPinchedMoved.bind(this);
+
+    trackEl.setAttribute('geometry', {
+      primitive: 'box',
+      height: 0.01,
+      width: this.data.width,
+      depth: 0.01
+    });
+
+    trackEl.setAttribute('material', {
+      color: 'white'
+    });
+
+    this.el.appendChild(trackEl);
+
+    var pickerEl = this.pickerEl = document.createElement('a-entity');
+    
+    // En lugar de un cilindro, usa un modelo GLTF
+    pickerEl.setAttribute('gltf-model', '#dinoModel');
+    pickerEl.setAttribute('position', '0 0 0');
+    pickerEl.setAttribute('scale', '0.1 0.1 0.1');  // Ajusta el tamaño según sea necesario
+
+    pickerEl.setAttribute('pinchable', {
+      pinchDistance: 0.05
+    });
+
+    this.el.appendChild(pickerEl);
+
+    pickerEl.addEventListener('pinchedmoved', this.onPinchedMoved);
+  },
+
+  onPinchedMoved: function (evt) {
+    var el = this.el;
+    var localPosition = this.localPosition;
+
+    // Copiar la posición global del selector al sistema de coordenadas local del slider
+    localPosition.copy(evt.detail.position);
+    el.object3D.updateMatrixWorld();
+    el.object3D.worldToLocal(localPosition);
+
+    // Actualizar la posición del selector en todas las coordenadas (X, Y, Z)
+    this.pickerEl.object3D.position.copy(localPosition);
+
+    // Emitir evento 'sliderchanged' con el valor actualizado
+    var evtDetail = this.evtDetail || {};
+    evtDetail.value = localPosition.x / this.data.width; // Puedes ajustar esto según tus necesidades
+    this.el.emit('sliderchanged', evtDetail);
+  }
+});
