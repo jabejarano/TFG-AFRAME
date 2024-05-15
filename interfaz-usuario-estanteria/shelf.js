@@ -50,7 +50,7 @@ AFRAME.registerComponent('shelf', {
     entity.setAttribute('gltf-model', object);
     entity.setAttribute('position', positionX + ' 0 0');
     entity.setAttribute('scale', '0.2 0.2 0.2');  // Ajusta el tamaño según sea necesario
-    entity.setAttribute('pinchable', { pinchDistance: 0.05 });
+    entity.setAttribute('pinchable', { pinchDistance: 0.1 });
 
     // Añadir la animación de rotación
     entity.setAttribute('animation', {

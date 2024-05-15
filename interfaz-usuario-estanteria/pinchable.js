@@ -25,6 +25,7 @@ AFRAME.registerComponent('pinchable', {
     if (pinchDistance < this.data.pinchDistance) {
       this.el.emit('pinchedstarted');
       this.pinched = true;
+      this.el.setAttribute('animation', 'enabled', 'false');  // Desactivar la animación de rotación
     }
   },
 
