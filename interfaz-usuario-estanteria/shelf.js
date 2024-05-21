@@ -14,8 +14,8 @@ AFRAME.registerComponent('shelf', {
     // Crear la caja grande que actuará como contenedor
     var container = document.createElement('a-box');
     container.setAttribute('position', '0 0 0');  // La posición es relativa a 'el'
-    container.setAttribute('depth', '0.4');
-    container.setAttribute('width', '1');
+    container.setAttribute('depth', '0.2');
+    container.setAttribute('width', '0.8');
     container.setAttribute('height', '0.25');
     container.setAttribute('material', 'color: #654321; side: double');  // Configurar material para ambos lados
     container.setAttribute('transparent', 'true');  // Hacer el material transparente
