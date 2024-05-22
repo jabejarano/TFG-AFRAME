@@ -2,7 +2,8 @@
 AFRAME.registerComponent('option', {
     schema: {
       figure: { type: 'string' },
-      name: { type: 'string' }
+      name: { type: 'string' },
+      pinchable: { type: 'boolean', default: false }
     },
   
     init: function () {
@@ -15,7 +16,6 @@ AFRAME.registerComponent('option', {
       var entity = document.createElement('a-entity');
       entity.setAttribute('gltf-model', data.figure);
       entity.setAttribute('scale', '0.2 0.2 0.2');  // Ajusta el tamaño según sea necesario
-      entity.setAttribute('pinchable', { pinchDistance: 0.1 });
   
       // Añadir la animación de rotación
       entity.setAttribute('animation', {
@@ -41,24 +41,29 @@ AFRAME.registerComponent('option', {
   
       // Añadir el modelo GLTF a la entidad principal
       el.appendChild(entity);
-      entity.addEventListener('pinchedmoved', this.onPinchedMoved);
-    },
-    bindMethods: function () {
-        this.onPinchedMoved = this.onPinchedMoved.bind(this);
-      },
-    
-
-    onPinchedMoved: function (evt) {
-        var el = evt.target;
-        var localPosition = this.localPosition;
-    
-        // Copiar la posición global del selector al sistema de coordenadas local del slider
-        localPosition.copy(evt.detail.position);
-        this.el.object3D.updateMatrixWorld();
-        this.el.object3D.worldToLocal(localPosition);
-    
-        // Actualizar la posición del objeto en todas las coordenadas (X, Y, Z)
-        el.object3D.position.copy(localPosition);
+  
+      // Verificar si debe ser pinchable
+      if (data.pinchable) {
+        entity.setAttribute('pinchable', { pinchDistance: 0.1 });
+        entity.addEventListener('pinchedmoved', this.onPinchedMoved);
       }
+    },
+  
+    bindMethods: function () {
+      this.onPinchedMoved = this.onPinchedMoved.bind(this);
+    },
+  
+    onPinchedMoved: function (evt) {
+      var el = evt.target;
+      var localPosition = this.localPosition;
+  
+      // Copiar la posición global del selector al sistema de coordenadas local del slider
+      localPosition.copy(evt.detail.position);
+      this.el.object3D.updateMatrixWorld();
+      this.el.object3D.worldToLocal(localPosition);
+  
+      // Actualizar la posición del objeto en todas las coordenadas (X, Y, Z)
+      el.object3D.position.copy(localPosition);
+    }
   });
   
