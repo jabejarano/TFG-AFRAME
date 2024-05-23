@@ -1,9 +1,9 @@
 AFRAME.registerComponent('creador', {
   init: function () {
     this.bindMethods();
-    this.sphereCount = 0; // Contador de modelos GLTF creados
-    this.cubeCount = 0; // Contador de cubos creados
-    this.cooldown = false; // Bandera para controlar el tiempo de espera
+    this.sphereCount = 0;
+    this.cubeCount = 0; 
+    this.cooldown = false; 
     this.el.addEventListener('pinchedstarted', this.createModel);
     this.el.addEventListener('pinchedended', this.createCube);
   },
@@ -13,18 +13,19 @@ AFRAME.registerComponent('creador', {
     this.createCube = this.createCube.bind(this);
   },
 
+  // Crea un nuevo modelo GLTF en la escena cuando se inicia un pinch.
   createModel: function () {
-    if (this.cooldown) return; // Si está en cooldown, no crear otro modelo
-    this.cooldown = true; // Activar el cooldown
+    if (this.cooldown) return; 
+    this.cooldown = true; 
 
     var sceneEl = this.el.sceneEl;
     var model = document.createElement('a-entity');
-    var xPosition = this.sphereCount * 0.2; // Espacio entre modelos ajustado a 0.2
+    var xPosition = this.sphereCount * 0.2; 
     model.setAttribute('gltf-model', '#figura1');
-    model.setAttribute('scale', '0.2 0.2 0.2'); // Ajustar escala según sea necesario
+    model.setAttribute('scale', '0.2 0.2 0.2'); 
     model.setAttribute('position', `${xPosition} 2 -0.5`);
     sceneEl.appendChild(model);
-    this.sphereCount++; // Incrementar contador
+    this.sphereCount++; 
 
     // Desactivar el cooldown después de 300 ms
     setTimeout(() => {
@@ -32,20 +33,21 @@ AFRAME.registerComponent('creador', {
     }, 300);
   },
 
+  // Crea un nuevo cubo en la escena cuando se termina un pinch.
   createCube: function () {
-    if (this.cooldown) return; // Si está en cooldown, no crear otro cubo
-    this.cooldown = true; // Activar el cooldown
+    if (this.cooldown) return; 
+    this.cooldown = true; 
 
     var sceneEl = this.el.sceneEl;
     var box = document.createElement('a-box');
-    var xPosition = this.cubeCount * 0.2; // Espacio entre cubos ajustado a 0.2
+    var xPosition = this.cubeCount * 0.2; 
     box.setAttribute('position', `${xPosition} 1 -0.5`);
     box.setAttribute('depth', 0.2);
     box.setAttribute('height', 0.2);
     box.setAttribute('width', 0.2);
     box.setAttribute('color', '#4CC3D9');
     sceneEl.appendChild(box);
-    this.cubeCount++; // Incrementar contador
+    this.cubeCount++; 
 
     // Desactivar el cooldown después de 300 ms
     setTimeout(() => {
