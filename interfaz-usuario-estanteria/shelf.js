@@ -1,4 +1,3 @@
-/* global AFRAME, THREE */
 AFRAME.registerComponent('shelf', {
   schema: {
     objects: { type: 'array' },
@@ -15,6 +14,7 @@ AFRAME.registerComponent('shelf', {
       return;
     }
 
-    var container = el.querySelector('a-box');
+    // Almacena las figuras permitidas en el elemento shelf para acceso global
+    this.el.setAttribute('allowed-objects', objects.join(','));
   }
 });

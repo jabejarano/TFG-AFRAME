@@ -25,11 +25,10 @@ AFRAME.registerComponent('pinchable', {
     if (pinchDistance < this.data.pinchDistance) {
       this.el.emit('pinchedstarted');
       this.pinched = true;
-      this.el.setAttribute('animation', 'enabled', 'false'); 
+      this.el.setAttribute('animation', 'enabled', 'false');  // Desactivar la animación de rotación
     }
   },
 
-  // Calcula la distancia entre la posición del pinch y la posición del objeto.
   calculatePinchDistance: function (pinchWorldPosition) {
     var el = this.el;
     var worldPosition = this.worldPosition;
@@ -44,7 +43,6 @@ AFRAME.registerComponent('pinchable', {
     return pinchDistance;
   },
 
-  // Maneja el evento cuando se termina un pinch, desactivando el modo pinched.
   onPinchEnded: function (evt) {
     if (this.pinched) {
       this.pinched = false;
@@ -52,7 +50,6 @@ AFRAME.registerComponent('pinchable', {
     }
   },
 
-  // Maneja el evento cuando un pinch se mueve, actualizando la posición del objeto si está en modo pinched.  
   onPinchMoved: function (evt) {
     var el = this.el;
     var pinchDistance = this.calculatePinchDistance(evt.detail.position);
@@ -61,6 +58,7 @@ AFRAME.registerComponent('pinchable', {
       el.emit('pinchedmoved', evt.detail);
     } else {
       this.pinched = false;
+      el.emit('pinchedended');
     }
   }
 });

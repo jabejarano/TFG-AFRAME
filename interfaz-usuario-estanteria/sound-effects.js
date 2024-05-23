@@ -17,6 +17,7 @@ AFRAME.registerComponent('sound-effects', {
     },
   
     playReleaseSound: function () {
+      this.releaseSound.play();
     }
   });
   
