@@ -10,14 +10,11 @@ AFRAME.registerComponent('shelf', {
     var names = this.data.names;
     var el = this.el;
 
-    // Verificar si la cantidad de objetos y nombres coincide
     if (objects.length !== names.length) {
       console.error('La cantidad de objetos y nombres no coincide');
       return;
     }
 
-    // Buscar el contenedor dentro del componente shelf
     var container = el.querySelector('a-box');
-
   }
 });

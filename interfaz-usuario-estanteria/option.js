@@ -15,15 +15,14 @@ AFRAME.registerComponent('option', {
       // Crear la entidad que representará el modelo GLTF
       var entity = document.createElement('a-entity');
       entity.setAttribute('gltf-model', data.figure);
-      entity.setAttribute('scale', '0.2 0.2 0.2');  // Ajusta el tamaño según sea necesario
+      entity.setAttribute('scale', '0.2 0.2 0.2');
   
-      // Añadir la animación de rotación
       entity.setAttribute('animation', {
         property: 'rotation',
         to: '0 360 0',
         loop: true,
-        dur: 10000,  // Duración de la animación en milisegundos
-        easing: 'linear'  // Usar interpolación lineal para una rotación constante
+        dur: 10000,  
+        easing: 'linear' 
       });
   
       // Añadir el texto encima del modelo
@@ -31,15 +30,12 @@ AFRAME.registerComponent('option', {
       text.setAttribute('text', {
         value: data.name,
         align: 'center',
-        side: 'double'  // Hacer que el texto sea visible desde ambos lados
+        side: 'double'  
       });
-      text.setAttribute('position', '0 0.5 0');  // Ajustar posición encima del modelo, más cercana
+      text.setAttribute('position', '0 0.5 0');
       text.setAttribute('scale', '3 3 3');
   
-      // Añadir el texto como hijo del modelo GLTF
       entity.appendChild(text);
-  
-      // Añadir el modelo GLTF a la entidad principal
       el.appendChild(entity);
   
       // Verificar si debe ser pinchable
@@ -57,7 +53,7 @@ AFRAME.registerComponent('option', {
       var el = evt.target;
       var localPosition = this.localPosition;
   
-      // Copiar la posición global del selector al sistema de coordenadas local del slider
+      // Copiar la posición global del selector al sistema de coordenadas local
       localPosition.copy(evt.detail.position);
       this.el.object3D.updateMatrixWorld();
       this.el.object3D.worldToLocal(localPosition);
