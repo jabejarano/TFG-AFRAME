@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hand Tracking! • A-Frame</title>
-  <meta name="description" content="Hand Tracking! • A-Frame">
+  <title>Habitación • A-Frame</title>
+  <meta name="description" content="Habitación interactiva con A-Frame">
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.3.4/dist/aframe-environment-component.min.js"></script>
   <script src="shelf.js"></script>
@@ -20,30 +20,30 @@
       <a-asset-item id="figura3" src="figuras3d/watermelon.glb"></a-asset-item>
       <audio id="grab-sound" src="sounds/boton.mp3"></audio>
       <audio id="release-sound" src="sounds/mario-bros-jump.mp3"></audio>
+      <img id="floor" src="assets/floor-texture.jpg">
     </a-assets>
 
-    <!-- Primera estantería -->
-    <a-entity shelf="objects: #figura1, #figura2; names: Opcion 1, Opcion 2">
-      <a-box position="0 1.5 -0.5" depth="0.2" width="0.8" height="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Opcion 1; pinchable: true" position="-0.3 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura2; name: Opcion 2" position="0 0 0"></a-entity>
-      </a-box>
-      <a-box position="0 1.75 -0.5" depth="0.2" width="0.8" height="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Opcion 1; pinchable: true" position="-0.3 0 0" creador sound-effects></a-entity>
-      </a-box>
-      <a-box position="0 1.25 -0.5" depth="0.2" width="0.8" height="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Opcion 1" position="-0.3 0 0"></a-entity>
-        <a-entity option="figure: #figura2; name: Opcion 2; pinchable: true" position="0 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura3; name: Opcion 3" position="0.3 0 0"></a-entity>
-      </a-box>
+    <!-- Iluminación -->
+    <a-light type="ambient" color="#ffffff" intensity="0.85"></a-light>
+
+    <!-- Habitacion -->
+    <a-entity id="room">
+      <a-plane id="wall1" position="0 2 -5" rotation="0 0 0" width="10" height="4" material="color: #B0B0B0; side: double;"></a-plane>
+      <a-plane id="wall2" position="5 2 0" rotation="0 -90 0" width="10" height="4" material="color: #B0B0B0; side: double;"></a-plane>
+      <a-plane id="wall3" position="0 2 5" rotation="0 180 0" width="10" height="4" material="color: #B0B0B0; side: double;"></a-plane>
+      <a-plane id="wall4" position="-5 2 0" rotation="0 90 0" width="10" height="4" material="color: #B0B0B0; side: double;"></a-plane>
+      <a-plane id="floor" position="0 0.15 0" rotation="-90 0 0" width="10" height="10" material="src: #floor; side: double;"></a-plane>
+      <a-plane id="ceiling" position="0 4 0" rotation="90 0 0" width="10" height="10" material="color: #A0A0A0; side: double;"></a-plane>
     </a-entity>
 
-    <!-- Segunda estantería a la derecha con esferas y girada para estar de frente -->
-    <a-entity position="0 0 0s" rotation="0 90 0" shelf="objects: #figura1, #figura3; names: Opcion 1, Opcion 3">
-      <a-sphere position="0 1.5 -0.5" radius="0.3" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Opcion 1; pinchable: true" position="-0.15 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura3; name: Opcion 3" position="0.15 0 0"></a-entity>
-        <a-entity option="figure: #figura2; name: Opcion 2" position="0 0 0"></a-entity>
+    <!-- Opciones dentro de la esfera -->
+    <a-entity position="0 0 0" shelf="objects: #figura1, #figura2, #figura3, #figura4, #figura5; names: Cambiar Color, Quitar Techo, Cambiar Pared, Añadir Sofá, Añadir Lámpara">
+      <a-sphere position="-0.2 1.5 -0.5" radius="0.3" material="color: #654321; side: double; transparent: true; opacity: 0.4">
+        <a-entity option="figure: #figura1; name: Cambiar Color; pinchable: true" position="-0.2 0 0" creador sound-effects></a-entity>
+        <a-entity option="figure: #figura2; name: Quitar Techo; pinchable: true" position="0 0 0" creador sound-effects></a-entity>
+        <a-entity option="figure: #figura3; name: Cambiar Pared; pinchable: true" position="0.2 0 0" creador sound-effects></a-entity>
+        <a-entity option="figure: #figura4; name: Añadir Sofá; pinchable: true" position="0 0.15 0" creador sound-effects></a-entity>
+        <a-entity option="figure: #figura5; name: Añadir Lámpara; pinchable: true" position="0 -0.2 0" creador sound-effects></a-entity>
       </a-sphere>
     </a-entity>
 
