@@ -1,23 +1,29 @@
 AFRAME.registerComponent('sound-effects', {
-    init: function () {
-      this.grabSound = document.querySelector('#grab-sound');
-      this.releaseSound = document.querySelector('#release-sound');
-      this.bindMethods();
-      this.el.addEventListener('pinchedstarted', this.playGrabSound);
-      this.el.addEventListener('pinchedended', this.playReleaseSound);
-    },
-  
-    bindMethods: function () {
-      this.playGrabSound = this.playGrabSound.bind(this);
-      this.playReleaseSound = this.playReleaseSound.bind(this);
-    },
-  
-    playGrabSound: function () {
+  init: function () {
+    this.grabSound = document.querySelector('#grab-sound');
+    this.bindMethods();
+    this.cooldown = false; // Flag de enfriamiento
+    this.el.addEventListener('pinchedstarted', this.toggleGrabSound);
+  },
+
+  bindMethods: function () {
+    this.toggleGrabSound = this.toggleGrabSound.bind(this);
+  },
+
+  toggleGrabSound: function () {
+    if (this.cooldown) return; 
+    this.cooldown = true; 
+
+    if (this.grabSound.paused) {
+      this.grabSound.currentTime = 0; 
       this.grabSound.play();
-    },
-  
-    playReleaseSound: function () {
-      this.releaseSound.play();
+    } else {
+      this.grabSound.pause();
+      this.grabSound.currentTime = 0; 
     }
-  });
-  
+
+    setTimeout(() => {
+      this.cooldown = false;
+    }, 300);
+  }
+});
