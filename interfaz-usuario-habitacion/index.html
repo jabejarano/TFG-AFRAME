@@ -11,6 +11,9 @@
   <script src="option.js"></script>
   <script src="creador.js"></script>
   <script src="sound-effects.js"></script>
+  <script src="toggle-light.js"></script>
+  <script src="remove-roof.js"></script>
+  <script src="change-wall-color.js"></script>
 </head>
 <body>
   <a-scene environment="preset: tron;">
@@ -18,13 +21,14 @@
       <a-asset-item id="figura1" src="figuras3d/drone.glb"></a-asset-item>
       <a-asset-item id="figura2" src="figuras3d/fruit.glb"></a-asset-item>
       <a-asset-item id="figura3" src="figuras3d/watermelon.glb"></a-asset-item>
+      <a-asset-item id="figura4" src="figuras3d/focus.glb"></a-asset-item>
       <audio id="grab-sound" src="sounds/boton.mp3"></audio>
       <audio id="release-sound" src="sounds/mario-bros-jump.mp3"></audio>
       <img id="floor" src="assets/floor-texture.jpg">
     </a-assets>
 
     <!-- Iluminación -->
-    <a-light type="ambient" color="#ffffff" intensity="0.85"></a-light>
+    <a-entity id="room-light" light="color: #ffffff; type: ambient; intensity: 0.85"></a-entity>
 
     <!-- Habitacion -->
     <a-entity id="room">
@@ -37,13 +41,13 @@
     </a-entity>
 
     <!-- Opciones dentro de la esfera -->
-    <a-entity position="0 0 0" shelf="objects: #figura1, #figura2, #figura3, #figura4, #figura5; names: Cambiar Color, Quitar Techo, Cambiar Pared, Añadir Sofá, Añadir Lámpara">
-      <a-sphere position="-0.2 1.5 -0.5" radius="0.3" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Cambiar Color; pinchable: true" position="-0.2 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura2; name: Quitar Techo; pinchable: true" position="0 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura3; name: Cambiar Pared; pinchable: true" position="0.2 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura4; name: Añadir Sofá; pinchable: true" position="0 0.15 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura5; name: Añadir Lámpara; pinchable: true" position="0 -0.2 0" creador sound-effects></a-entity>
+    <a-entity position="0 0 0" shelf="objects: #figura1, #figura2, #figura3, #figura4, #figura5; names: Cambiar Color, Apagar luces, Cambiar Pared,Añadir Lámpara, Quitar Techo">
+      <a-sphere position="-0.2 1.5 -0.5" radius="0.35" material="color: #654321; side: double; transparent: true; opacity: 0.4">
+        <a-entity option="figure: #figura1; name: Cambiar Color; pinchable: true" position="-0.25 0 0" sound-effects change-wall-color></a-entity>
+        <a-entity option="figure: #figura2; name: Apagar luces; pinchable: true" position="0 0 0" sound-effects toggle-light></a-entity>
+        <a-entity option="figure: #figura3; name: Cambiar Pared; pinchable: true" position="0.25 0 0" sound-effects></a-entity>
+        <a-entity option="figure: #figura4; name: Quitar Techo; pinchable: true" position="0 0.25 0" sound-effects remove-roof></a-entity>
+        <a-entity option="figure: #figura5; name: Añadir Lámpara; pinchable: true" position="0 -0.25 0" sound-effects></a-entity>
       </a-sphere>
     </a-entity>
 
