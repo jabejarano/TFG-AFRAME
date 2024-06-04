@@ -2,7 +2,7 @@ AFRAME.registerComponent('remove-roof', {
     init: function () {
       this.bindMethods();
       this.el.addEventListener('pinchedstarted', this.toggleRoof);
-      this.cooldown = false; // Flag de enfriamiento
+      this.cooldown = false; //enfriamiento
     },
   
     bindMethods: function () {
@@ -10,8 +10,8 @@ AFRAME.registerComponent('remove-roof', {
     },
   
     toggleRoof: function () {
-      if (this.cooldown) return; // Si está en enfriamiento, no hacer nada
-      this.cooldown = true; // Activar el enfriamiento
+      if (this.cooldown) return; 
+      this.cooldown = true; 
   
       var ceiling = document.querySelector('#ceiling');
       if (ceiling) {
@@ -19,7 +19,7 @@ AFRAME.registerComponent('remove-roof', {
         ceiling.setAttribute('visible', !isVisible);
       }
   
-      // Desactivar el enfriamiento después de 1 segundo (1000 ms)
+
       setTimeout(() => {
         this.cooldown = false;
       }, 300);

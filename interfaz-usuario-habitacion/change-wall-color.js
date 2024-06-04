@@ -2,10 +2,10 @@ AFRAME.registerComponent('change-wall-color', {
     init: function () {
       this.bindMethods();
       this.el.addEventListener('pinchedstarted', this.changeColor);
-      this.cooldown = false; // Flag de enfriamiento
-      this.isOriginalColor = true; // Flag para alternar entre colores
-      this.originalColor = '#B0B0B0'; // Color original de las paredes
-      this.newColor = '#00FFFF'; // Nuevo color (azul cian)
+      this.cooldown = false; 
+      this.isOriginalColor = true; 
+      this.originalColor = '#B0B0B0'; // Color original 
+      this.newColor = '#00FFFF'; // azul cian
     },
   
     bindMethods: function () {
@@ -13,8 +13,8 @@ AFRAME.registerComponent('change-wall-color', {
     },
   
     changeColor: function () {
-      if (this.cooldown) return; // Si está en enfriamiento, no hacer nada
-      this.cooldown = true; // Activar el enfriamiento
+      if (this.cooldown) return; 
+      this.cooldown = true; 
   
       var walls = document.querySelectorAll('#wall1, #wall2, #wall3, #wall4');
       var colorToSet = this.isOriginalColor ? this.newColor : this.originalColor;
@@ -23,13 +23,12 @@ AFRAME.registerComponent('change-wall-color', {
         wall.setAttribute('material', 'color', colorToSet); // Cambiar el color
       });
   
-      // Alternar el flag para la próxima vez
+      // Alternar
       this.isOriginalColor = !this.isOriginalColor;
   
-      // Desactivar el enfriamiento después de 1 segundo (1000 ms)
       setTimeout(() => {
         this.cooldown = false;
-      }, 1000);
+      }, 300);
     }
   });
   
