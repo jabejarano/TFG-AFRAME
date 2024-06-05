@@ -1,53 +1,41 @@
 AFRAME.registerComponent('creador', {
+  schema: {
+    type: { type: 'string' }
+  },
+
   init: function () {
     this.bindMethods();
-    this.sphereCount = 0;
-    this.cubeCount = 0; 
-    this.cooldown = false; 
-    this.el.addEventListener('pinchedstarted', this.createModel);
-    this.el.addEventListener('pinchedended', this.createCube);
+    this.cooldown = false;
+    this.createdObject = null;
+    this.el.addEventListener('pinchedstarted', this.createObject);
   },
 
   bindMethods: function () {
-    this.createModel = this.createModel.bind(this);
-    this.createCube = this.createCube.bind(this);
+    this.createObject = this.createObject.bind(this);
   },
 
-  // Crea un nuevo modelo GLTF en la escena cuando se inicia un pinch.
-  createModel: function () {
-    if (this.cooldown) return; 
-    this.cooldown = true; 
+  createObject: function () {
+    if (this.cooldown) return;
+    this.cooldown = true;
 
     var sceneEl = this.el.sceneEl;
-    var model = document.createElement('a-entity');
-    var xPosition = this.sphereCount * 0.2; 
-    model.setAttribute('gltf-model', '#figura1');
-    model.setAttribute('scale', '0.2 0.2 0.2'); 
-    model.setAttribute('position', `${xPosition} 2 -0.5`);
-    sceneEl.appendChild(model);
-    this.sphereCount++; 
 
-    // Desactivar el cooldown después de 300 ms
-    setTimeout(() => {
-      this.cooldown = false;
-    }, 300);
-  },
+    // Si ya existe un objeto creado, elimínalo
+    if (window.currentCreatedObject) {
+      window.currentCreatedObject.parentNode.removeChild(window.currentCreatedObject);
+      window.currentCreatedObject = null;
+    }
 
-  // Crea un nuevo cubo en la escena cuando se termina un pinch.
-  createCube: function () {
-    if (this.cooldown) return; 
-    this.cooldown = true; 
+    // Crear el nuevo objeto
+    var object = document.createElement('a-entity');
+    object.setAttribute('geometry', `primitive: ${this.data.type}`);
+    object.setAttribute('scale', '0.5 0.5 0.5');
+    object.setAttribute('position', '0 1 -0.5');
+    object.setAttribute('material', 'color: #4CC3D9');
+    sceneEl.appendChild(object);
 
-    var sceneEl = this.el.sceneEl;
-    var box = document.createElement('a-box');
-    var xPosition = this.cubeCount * 0.2; 
-    box.setAttribute('position', `${xPosition} 1 -0.5`);
-    box.setAttribute('depth', 0.2);
-    box.setAttribute('height', 0.2);
-    box.setAttribute('width', 0.2);
-    box.setAttribute('color', '#4CC3D9');
-    sceneEl.appendChild(box);
-    this.cubeCount++; 
+    // Guardar la referencia al objeto creado en la variable global
+    window.currentCreatedObject = object;
 
     // Desactivar el cooldown después de 300 ms
     setTimeout(() => {
