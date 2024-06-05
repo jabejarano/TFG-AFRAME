@@ -11,9 +11,10 @@
   <script src="option.js"></script>
   <script src="creador.js"></script>
   <script src="sound-effects.js"></script>
+  <script src="menu-handler.js"></script>
 </head>
 <body>
-  <a-scene environment="preset: tron;">
+  <a-scene environment="preset: forest;">
     <a-assets>
       <a-asset-item id="figura1" src="figuras3d/drone.glb"></a-asset-item>
       <a-asset-item id="figura2" src="figuras3d/fruit.glb"></a-asset-item>
@@ -22,29 +23,37 @@
       <audio id="release-sound" src="sounds/mario-bros-jump.mp3"></audio>
     </a-assets>
 
-    <!-- Primera estantería -->
-    <a-entity shelf="objects: #figura1, #figura2; names: Opcion 1, Opcion 2">
-      <a-box position="0 1.5 -0.5" depth="0.2" width="0.8" height="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Opcion 1; pinchable: true" position="-0.3 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura2; name: Opcion 2" position="0 0 0"></a-entity>
-      </a-box>
-      <a-box position="0 1.75 -0.5" depth="0.2" width="0.8" height="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Opcion 1; pinchable: true" position="-0.3 0 0" creador sound-effects></a-entity>
-      </a-box>
-      <a-box position="0 1.25 -0.5" depth="0.2" width="0.8" height="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Opcion 1" position="-0.3 0 0"></a-entity>
-        <a-entity option="figure: #figura2; name: Opcion 2; pinchable: true" position="0 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura3; name: Opcion 3" position="0.3 0 0"></a-entity>
+    <!-- Menú principal -->
+    <a-entity id="main-menu" shelf="objects: #figura1, #figura2, #figura3; names: Opcion 1, Opcion2, Opcion 3">
+      <a-sphere pinchable position="-0.1 1.4 -0.5" radius="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
+        <a-entity option="figure: #figura1; name: caja; pinchable: true" menu-handler="menuId: #submenu1" position="-0.1 -0.05 0" ></a-entity>
+        <a-entity option="figure: #figura3; name: esfera; pinchable: true" menu-handler="menuId: #submenu2" position="0.1 -0.05 0" ></a-entity>
+        <a-entity option="figure: #figura2; name: cilindro; pinchable: true" menu-handler="menuId: #submenu3" position="0 0.1 0"  ></a-entity>
+      </a-sphere>
+    </a-entity>
+
+    <!-- Submenú 1 estanteria -->
+    <a-entity id="submenu1" visible="false" position="-0.2 1.8 -0.5" shelf="objects: #figura2, #figura3; names: Sub Opcion 1, Sub Opcion 2">
+      <a-box depth="0.2" width="0.5" height="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
+        <a-entity option="figure: #figura2; name: Sub Opcion 1; pinchable: true" position="-0.15 0 0"></a-entity>
+        <a-entity option="figure: #figura3; name: Sub Opcion 2; pinchable: true" position="0.15 0 0"></a-entity>
       </a-box>
     </a-entity>
 
-    <!-- Segunda estantería a la derecha con esferas y girada para estar de frente -->
-    <a-entity position="0 0 0s" rotation="0 90 0" shelf="objects: #figura1, #figura3; names: Opcion 1, Opcion 3">
-      <a-sphere position="0 1.5 -0.5" radius="0.3" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Opcion 1; pinchable: true" position="-0.15 0 0" creador sound-effects></a-entity>
-        <a-entity option="figure: #figura3; name: Opcion 3" position="0.15 0 0"></a-entity>
-        <a-entity option="figure: #figura2; name: Opcion 2" position="0 0 0"></a-entity>
+    <!-- Submenú 2 esfera -->
+    <a-entity id="submenu2" visible="false" position="-0.5 1.4 -0.4" shelf="objects: #figura1, #figura2; names: Sub Opcion A, Sub Opcion B">
+      <a-sphere radius="0.2" material="color: #654321; side: double; transparent: true; opacity: 0.4">
+        <a-entity option="figure: #figura1; name: Sub Opcion A; pinchable: true" position="-0.1 0 0"></a-entity>
+        <a-entity option="figure: #figura2; name: Sub Opcion B; pinchable: true" position="0.1 0 0"></a-entity>
       </a-sphere>
+    </a-entity>
+
+    <!-- Submenú 3 cilindro -->
+    <a-entity id="submenu3" visible="false" position="0.3a 1.5 -0.5" shelf="objects: #figura1, #figura2; names: Sub Opcion A, Sub Opcion B">
+      <a-cylinder height="0.7" radius="0.2" material="color: #654321; side: double; transparent: true; opacity: 0.4">
+        <a-entity option="figure: #figura1; name: Sub Opcion A; pinchable: true" position="0 0.1 0"></a-entity>
+        <a-entity option="figure: #figura2; name: Sub Opcion B; pinchable: true" position="0 -0.1 0"></a-entity>
+      </a-cylinder>
     </a-entity>
 
     <a-entity hand-tracking-controls="hand: left"></a-entity>
