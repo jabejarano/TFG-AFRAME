@@ -14,6 +14,7 @@
   <script src="submenu-components/menu-light.js"></script>
   <script src="submenu-components/menu-wall-color.js"></script>
   <script src="submenu-components/menu-wall.js"></script>
+  <script src="submenu-components/menu-object.js"></script>
   
   <!-- Functionality Components -->
   <script src="functionality-components/creador.js"></script>
@@ -27,7 +28,9 @@
   <script src="functionality-components/change-wall-color-blue.js"></script>
   <script src="functionality-components/change-wall-color-green.js"></script>
   <script src="functionality-components/change-wall-color-yellow.js"></script>
-  <script src="functionality-components/toggle-object.js"></script>
+  <script src="functionality-components/toggle-box.js"></script>
+  <script src="functionality-components/toggle-cone.js"></script>
+  <script src="functionality-components/toggle-cylinder.js"></script>
 </head>
 <body>
   <a-scene environment="preset: tron;">
@@ -61,7 +64,7 @@
         <a-entity option="figure: #figura4; name: Iluminacion; pinchable: true; scale: 0.1 0.1 0.1; text-scale: 7 7 7; text-position: 0 1.3 0" menu-light="position: -0.75 1.6 -0.5" position="-0.65 0 0" ></a-entity>
         <a-entity option="figure: #figura1; name: Color Pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall-color="position: -0.4 1.6 -0.5" position="-0.3 0 0" ></a-entity>
         <a-entity option="figure: #figura3; name: Quitar pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall="position: 0 1.6 -0.5" position="0 0 0" ></a-entity>
-        <a-entity option="figure: #figura2; name: Añadir Objeto; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" creador position="0.3 0 0"></a-entity>
+        <a-entity option="figure: #figura2; name: Añadir Objeto; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-object="position: 0.35 1.6 -0.5" position="0.3 0 0"></a-entity>
         <a-entity option="figure: #figura1; name: Otro; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" position="0.55 0 0"></a-entity>
       </a-box>
     </a-entity>
