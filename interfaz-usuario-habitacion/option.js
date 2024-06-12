@@ -3,7 +3,9 @@ AFRAME.registerComponent('option', {
     figure: { type: 'string' },
     name: { type: 'string' },
     pinchable: { type: 'boolean', default: false },
-    scale: { type: 'string', default: '0.2 0.2 0.2' }  // Añadido el parámetro de escala
+    scale: { type: 'string', default: '0.2 0.2 0.2' },  // Añadido el parámetro de escala
+    textScale: { type: 'string', default: '2 2 2' },   // Añadido el parámetro de escala del texto
+    textPosition: { type: 'string', default: '0 0.7 0' }  // Añadido el parámetro de posición del texto
   },
 
   init: function () {
@@ -39,13 +41,13 @@ AFRAME.registerComponent('option', {
         entity.setAttribute('scale', data.scale);  // Aplicar la escala proporcionada
 
         // Añadir la animación de rotación
-        entity.setAttribute('animation', {
-          property: 'rotation',
-          to: '0 360 0',
-          loop: true,
-          dur: 10000,
-          easing: 'linear' 
-        });
+        // entity.setAttribute('animation', {
+         // property: 'rotation',
+          // to: '0 360 0',
+          // loop: true,
+         // dur: 10000,
+         // easing: 'linear' 
+       // });
 
         // Añadir el texto encima del modelo
         var text = document.createElement('a-entity');
@@ -54,8 +56,8 @@ AFRAME.registerComponent('option', {
           align: 'center',
           side: 'double'
         });
-        text.setAttribute('position', '0 0.7 0');  
-        text.setAttribute('scale', '2 2 2');
+        text.setAttribute('position', data.textPosition);  
+        text.setAttribute('scale', data.textScale);
 
         entity.appendChild(text);
         el.appendChild(entity);

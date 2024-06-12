@@ -44,12 +44,12 @@
 
     <!-- Opciones dentro de la esfera -->
     <a-entity position="0 0 0" shelf="objects: #figura1, #figura2, #figura3, #figura4, #figura5; names: Cambiar Color, Apagar luces, Cambiar Pared,Añadir Lámpara, Quitar Techo">
-      <a-sphere position="-0.2 1.5 -0.5" radius="0.35" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Cambiar Color; pinchable: true" position="-0.25 0 0" change-wall-color></a-entity>
-        <a-entity option="figure: #figura2; name: Apagar luces; pinchable: true" position="0 0 0" toggle-light></a-entity>
-        <a-entity option="figure: #figura3; name: Cambiar Pared; pinchable: true" position="0.25 0 0" sound-effects></a-entity>
-        <a-entity option="figure: #figura4; name: Quitar Techo; pinchable: true" position="0 0.25 0" remove-roof></a-entity>
-        <a-entity option="figure: #figura5; name: Añadir Objeto; pinchable: true" position="0 -0.25 0" toggle-object></a-entity>
+      <a-sphere position="-0.2 1.5 -0.5" radius="0.4" material="color: #654321; side: double; transparent: true; opacity: 0.4">
+        <a-entity option="figure: #figura1; name: Cambiar Color; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" position="-0.25 0 0" change-wall-color></a-entity>
+        <a-entity option="figure: #figura4; name: Apagar luces; pinchable: true; scale: 0.1 0.1 0.1; text-scale: 7 7 7; text-position: 0 1.3 0" position="0 0 0" toggle-light></a-entity>
+        <a-entity option="figure: #figura3; name: Cambiar Pared; pinchable: true; scale: 0.3 0.3 0.3; text-scale: 3 3 3; text-position: 0 0.3 0" position="0.25 0 0" sound-effects></a-entity>
+        <a-entity option="figure: #figura2; name: Quitar Techo; pinchable: true; scale: 0.4 0.4 0.4; text-scale: 2 2 2; text-position: 0 0.3 0" position="0 0.25 0" remove-roof></a-entity>
+        <a-entity option="figure: #figura1; name: Agregar Objeto; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" position="0 -0.25 0" toggle-object></a-entity>
       </a-sphere>
     </a-entity>
 
