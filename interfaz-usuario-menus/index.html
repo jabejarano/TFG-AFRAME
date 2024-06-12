@@ -9,7 +9,6 @@
   <script src="shelf.js"></script>
   <script src="pinchable.js"></script>
   <script src="option.js"></script>
-  <script src="creador.js"></script>
   <script src="sound-effects.js"></script>
   <script src="menu-handler.js"></script>
 </head>
@@ -26,33 +25,33 @@
     <!-- Menú principal -->
     <a-entity id="main-menu" shelf="objects: #figura1, #figura2, #figura3; names: Opcion 1, Opcion2, Opcion 3">
       <a-sphere pinchable position="-0.1 1.4 -0.5" radius="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: caja; pinchable: true" menu-handler="menuId: #submenu1" position="-0.1 -0.05 0" ></a-entity>
-        <a-entity option="figure: #figura3; name: esfera; pinchable: true" menu-handler="menuId: #submenu2" position="0.1 -0.05 0" ></a-entity>
-        <a-entity option="figure: #figura2; name: cilindro; pinchable: true" menu-handler="menuId: #submenu3" position="0 0.1 0"  ></a-entity>
+        <a-entity option="figure: #figura1; name: caja; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-handler="menuId: #submenu1" position="-0.1 -0.05 0" ></a-entity>
+        <a-entity option="figure: #figura3; name: esfera; pinchable: true; scale: 0.3 0.3 0.3; text-scale: 3 3 3; text-position: 0 0.3 0" menu-handler="menuId: #submenu2" position="0.1 -0.05 0" ></a-entity>
+        <a-entity option="figure: #figura2; name: cilindro; pinchable: true; scale: 0.4 0.4 0.4; text-scale: 2 2 2; text-position: 0 0.3 0" menu-handler="menuId: #submenu3" position="0 0.1 0"  ></a-entity>
       </a-sphere>
     </a-entity>
 
     <!-- Submenú 1 estanteria -->
     <a-entity id="submenu1" visible="false" position="-0.2 1.8 -0.5" shelf="objects: #figura2, #figura3; names: Sub Opcion 1, Sub Opcion 2">
       <a-box depth="0.2" width="0.5" height="0.25" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura2; name: Sub Opcion 1; pinchable: true" position="-0.15 0 0"></a-entity>
-        <a-entity option="figure: #figura3; name: Sub Opcion 2; pinchable: true" position="0.15 0 0"></a-entity>
+        <a-entity option="figure: #figura2; name: Sub Opcion 1; pinchable: true; scale: 0.4 0.4 0.4; text-scale: 2 2 2; text-position: 0 0.3 0" position="-0.15 0 0"></a-entity>
+        <a-entity option="figure: #figura3; name: Sub Opcion 2; pinchable: true scale: 0.3 0.3 0.3; text-scale: 3 3 3; text-position: 0 0.3 0" position="0.15 0 0"></a-entity>
       </a-box>
     </a-entity>
 
     <!-- Submenú 2 esfera -->
     <a-entity id="submenu2" visible="false" position="-0.5 1.4 -0.4" shelf="objects: #figura1, #figura2; names: Sub Opcion A, Sub Opcion B">
       <a-sphere radius="0.2" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Sub Opcion A; pinchable: true" position="-0.1 0 0"></a-entity>
-        <a-entity option="figure: #figura2; name: Sub Opcion B; pinchable: true" position="0.1 0 0"></a-entity>
+        <a-entity option="figure: #figura1; name: Sub Opcion A; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" position="-0.1 0 0"></a-entity>
+        <a-entity option="figure: #figura2; name: Sub Opcion B; pinchable: true; scale: 0.4 0.4 0.4; text-scale: 2 2 2; text-position: 0 0.3 0" position="0.1 0 0"></a-entity>
       </a-sphere>
     </a-entity>
 
     <!-- Submenú 3 cilindro -->
     <a-entity id="submenu3" visible="false" position="0.3a 1.5 -0.5" shelf="objects: #figura1, #figura2; names: Sub Opcion A, Sub Opcion B">
       <a-cylinder height="0.7" radius="0.2" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura1; name: Sub Opcion A; pinchable: true" position="0 0.1 0"></a-entity>
-        <a-entity option="figure: #figura2; name: Sub Opcion B; pinchable: true" position="0 -0.1 0"></a-entity>
+        <a-entity option="figure: #figura1; name: Sub Opcion A; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" position="0 0.1 0"></a-entity>
+        <a-entity option="figure: #figura2; name: Sub Opcion B; pinchable: true; scale: 0.4 0.4 0.4; text-scale: 2 2 2; text-position: 0 0.3 0" position="0 -0.1 0"></a-entity>
       </a-cylinder>
     </a-entity>
 
