@@ -37,6 +37,7 @@ AFRAME.registerComponent('menu-cylinder', {
         var option1 = document.createElement('a-entity');
         option1.setAttribute('option', 'figure: #figura1; name: Sub Opcion A; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0');
         option1.setAttribute('position', '0 0.2 0');
+        option1.setAttribute('create-box', ''); // Añadir componente para crear una caja
   
         var option2 = document.createElement('a-entity');
         option2.setAttribute('option', 'figure: #figura2; name: Sub Opcion B; pinchable: true; scale: 0.4 0.4 0.4; text-scale: 2 2 2; text-position: 0 0.3 0');
