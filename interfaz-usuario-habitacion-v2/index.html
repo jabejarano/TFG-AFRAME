@@ -9,13 +9,25 @@
   <script src="shelf.js"></script>
   <script src="pinchable.js"></script>
   <script src="option.js"></script>
-  <script src="creador.js"></script>
-  <script src="sound-effects.js"></script>
-  <script src="toggle-light.js"></script>
-  <script src="remove-roof.js"></script>
-  <script src="change-wall-color.js"></script>
-  <script src="toggle-object.js"></script>
-  <script src="menu-light.js"></script>
+
+  <!-- Submenu Components -->
+  <script src="submenu-components/menu-light.js"></script>
+  <script src="submenu-components/menu-wall-color.js"></script>
+  <script src="submenu-components/menu-wall.js"></script>
+  
+  <!-- Functionality Components -->
+  <script src="functionality-components/creador.js"></script>
+  <script src="functionality-components/sound-effects.js"></script>
+  <script src="functionality-components/toggle-light.js"></script>
+  <script src="functionality-components/toggle-red-light.js"></script>
+  <script src="functionality-components/toggle-light-intensity.js"></script>
+  <script src="functionality-components/remove-roof.js"></script>
+  <script src="functionality-components/remove-back-wall.js"></script>
+  <script src="functionality-components/remove-front-wall.js"></script>
+  <script src="functionality-components/change-wall-color-blue.js"></script>
+  <script src="functionality-components/change-wall-color-green.js"></script>
+  <script src="functionality-components/change-wall-color-yellow.js"></script>
+  <script src="functionality-components/toggle-object.js"></script>
 </head>
 <body>
   <a-scene environment="preset: tron;">
@@ -46,9 +58,9 @@
     <!-- Opciones dentro de la caja -->
     <a-entity position="0 0 0" shelf="objects: #figura1, #figura2, #figura3, #figura4, #figura5; names: Iluminación, Color Pared, Pared, Añadir Objeto, Otro">
       <a-box position="0 1.3 -0.3" depth="0.25" height="0.3" width="1.45" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura4; name: Iluminacion; pinchable: true; scale: 0.1 0.1 0.1; text-scale: 7 7 7; text-position: 0 1.3 0" menu-light="position: -0.65 1.6 -0.5" position="-0.65 0 0" ></a-entity>
-        <a-entity option="figure: #figura1; name: Color Pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall-color="position: -0.4 1.5 -0.5" position="-0.3 0 0" ></a-entity>
-        <a-entity option="figure: #figura3; name: Pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall="position: -0.05 1.5 -0.5" position="0 0 0" ></a-entity>
+        <a-entity option="figure: #figura4; name: Iluminacion; pinchable: true; scale: 0.1 0.1 0.1; text-scale: 7 7 7; text-position: 0 1.3 0" menu-light="position: -0.75 1.6 -0.5" position="-0.65 0 0" ></a-entity>
+        <a-entity option="figure: #figura1; name: Color Pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall-color="position: -0.4 1.6 -0.5" position="-0.3 0 0" ></a-entity>
+        <a-entity option="figure: #figura3; name: Quitar pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall="position: 0 1.6 -0.5" position="0 0 0" ></a-entity>
         <a-entity option="figure: #figura2; name: Añadir Objeto; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" creador position="0.3 0 0"></a-entity>
         <a-entity option="figure: #figura1; name: Otro; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" position="0.55 0 0"></a-entity>
       </a-box>
