@@ -2,7 +2,10 @@ AFRAME.registerComponent('option', {
   schema: {
     figure: { type: 'string' },
     name: { type: 'string' },
-    pinchable: { type: 'boolean', default: false }
+    pinchable: { type: 'boolean', default: false },
+    scale: { type: 'string', default: '0.2 0.2 0.2' },
+    textScale: { type: 'string', default: '2 2 2' },
+    textPosition: { type: 'string', default: '0 0.7 0' }
   },
 
   init: function () {
@@ -35,7 +38,7 @@ AFRAME.registerComponent('option', {
         // Crear la entidad que representará el modelo GLTF
         var entity = document.createElement('a-entity');
         entity.setAttribute('gltf-model', data.figure);
-        entity.setAttribute('scale', '0.2 0.2 0.2'); 
+        entity.setAttribute('scale', data.scale); 
 
         // Añadir la animación de rotación
         entity.setAttribute('animation', {
@@ -53,8 +56,8 @@ AFRAME.registerComponent('option', {
           align: 'center',
           side: 'double'
         });
-        text.setAttribute('position', '0 0.5 0');  
-        text.setAttribute('scale', '3 3 3');
+        text.setAttribute('position', data.textPosition);  
+        text.setAttribute('scale', data.textScale);
 
         entity.appendChild(text);
         el.appendChild(entity);
