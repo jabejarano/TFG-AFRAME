@@ -1,4 +1,4 @@
-AFRAME.registerComponent('menu-object', {
+AFRAME.registerComponent('menu-music', {
     schema: {
       position: { type: 'string', default: '0 1.5 -2' }
     },
@@ -27,7 +27,7 @@ AFRAME.registerComponent('menu-object', {
       } else {
         // Crear entidad shelf
         var shelf = document.createElement('a-entity');
-        shelf.setAttribute('shelf', 'objects: #figura1, #figura2, #figura3; names: Sub Opcion A, Sub Opcion B, Sub Opcion C');
+        shelf.setAttribute('shelf', 'objects: #figura1, #figura2, #figura3; names: Stranger Things, Mario Bros, Mario Jump');
   
         var menuSphere = document.createElement('a-entity');
         menuSphere.setAttribute('geometry', 'primitive: sphere; radius: 0.2');
@@ -37,7 +37,7 @@ AFRAME.registerComponent('menu-object', {
         // Añadir el texto encima de la esfera
         var text = document.createElement('a-entity');
         text.setAttribute('text', {
-          value: 'Menu Objeto',
+          value: 'Menu Música',
           align: 'center',
           color: '#FFFFFF',
           width: 1
@@ -46,19 +46,19 @@ AFRAME.registerComponent('menu-object', {
         menuSphere.appendChild(text);
   
         var option1 = document.createElement('a-entity');
-        option1.setAttribute('option', 'figure: #figura1; name: Crear caja; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option1.setAttribute('option', 'figure: #figura1; name: Stranger Things; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
         option1.setAttribute('position', '0 0.1 0');
-        option1.setAttribute('toggle-box', ''); // Añadir un objeto box
+        option1.setAttribute('sound-stranger-things', '');
   
         var option2 = document.createElement('a-entity');
-        option2.setAttribute('option', 'figure: #figura2; name: Crear cono; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option2.setAttribute('option', 'figure: #figura2; name: Mario Bros; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
         option2.setAttribute('position', '0 -0.1 0');
-        option2.setAttribute('toggle-cone', ''); // Añadir un objeto cone
+        option2.setAttribute('sound-mario-bros', '');
   
         var option3 = document.createElement('a-entity');
-        option3.setAttribute('option', 'figure: #figura3; name: Crear cilindro; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option3.setAttribute('option', 'figure: #figura3; name: Mario Jump; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
         option3.setAttribute('position', '0 0 0.1');
-        option3.setAttribute('toggle-cylinder', ''); // Añadir un objeto cylinder
+        option3.setAttribute('sound-mario-jump', '');
   
         menuSphere.appendChild(option1);
         menuSphere.appendChild(option2);

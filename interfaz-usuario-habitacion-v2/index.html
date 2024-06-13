@@ -15,10 +15,10 @@
   <script src="submenu-components/menu-wall-color.js"></script>
   <script src="submenu-components/menu-wall.js"></script>
   <script src="submenu-components/menu-object.js"></script>
+  <script src="submenu-components/menu-music.js"></script>
   
   <!-- Functionality Components -->
   <script src="functionality-components/creador.js"></script>
-  <script src="functionality-components/sound-effects.js"></script>
   <script src="functionality-components/toggle-light.js"></script>
   <script src="functionality-components/toggle-red-light.js"></script>
   <script src="functionality-components/toggle-light-intensity.js"></script>
@@ -31,6 +31,9 @@
   <script src="functionality-components/toggle-box.js"></script>
   <script src="functionality-components/toggle-cone.js"></script>
   <script src="functionality-components/toggle-cylinder.js"></script>
+  <script src="functionality-components/sound-stranger-things.js"></script>
+  <script src="functionality-components/sound-mario-bros.js"></script>
+  <script src="functionality-components/sound-mario-jump.js"></script>
 </head>
 <body>
   <a-scene environment="preset: tron;">
@@ -40,6 +43,8 @@
       <a-asset-item id="figura3" src="figuras3d/watermelon.glb"></a-asset-item>
       <a-asset-item id="figura4" src="figuras3d/focus.glb"></a-asset-item>
       <audio id="grab-sound" src="sounds/stranger-things.mp3"></audio>
+      <audio id="mario-sound" src="sounds/mario-bros.mp3"></audio>
+      <audio id="mario-jump-sound" src="sounds/mario-bros-jump.mp3"></audio>
       <img id="floor" src="assets/floor-texture.jpg">
     </a-assets>
 
@@ -65,7 +70,7 @@
         <a-entity option="figure: #figura1; name: Color Pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall-color="position: -0.4 1.6 -0.5" position="-0.3 0 0" ></a-entity>
         <a-entity option="figure: #figura3; name: Quitar pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall="position: 0 1.6 -0.5" position="0 0 0" ></a-entity>
         <a-entity option="figure: #figura2; name: Añadir Objeto; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-object="position: 0.35 1.6 -0.5" position="0.3 0 0"></a-entity>
-        <a-entity option="figure: #figura1; name: Otro; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" position="0.55 0 0"></a-entity>
+        <a-entity option="figure: #figura1; name: Musica; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-music="position: 0.68 1.6 -0.5" position="0.55 0 0"></a-entity>
       </a-box>
     </a-entity>
 
