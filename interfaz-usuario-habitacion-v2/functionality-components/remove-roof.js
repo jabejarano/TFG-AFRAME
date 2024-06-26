@@ -19,7 +19,6 @@ AFRAME.registerComponent('remove-roof', {
         ceiling.setAttribute('visible', !isVisible);
       }
   
-
       setTimeout(() => {
         this.cooldown = false;
       }, 300);
