@@ -76,7 +76,6 @@ AFRAME.registerComponent('option', {
     var el = evt.target;
     var localPosition = this.localPosition;
 
-    // Copiar la posición global del selector al sistema de coordenadas local del slider
     localPosition.copy(evt.detail.position);
     this.el.object3D.updateMatrixWorld();
     this.el.object3D.worldToLocal(localPosition);
