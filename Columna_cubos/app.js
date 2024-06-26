@@ -18,7 +18,7 @@ AFRAME.registerComponent('cubos', {
 
             // Closure para capturar el cubo en cada iteración del bucle
             (function(cubo) {
-                var esferaCreada = false;
+                var cuboCreado = false;
                 var colorIndex = colores.indexOf(color);
                 cubo.addEventListener('click', function() {
                     if (!esferaCreada) {
@@ -28,13 +28,13 @@ AFRAME.registerComponent('cubos', {
                     esfera.setAttribute('color', colores[(colorIndex + 1) % colores.length]); // Obtener el nuevo color del array de colores
                     cubo.appendChild(esfera);
 
-                    esferaCreada = true;
+                    cuboCreado = true;
                 } else {
                         var esfera = cubo.querySelector('a-box');
                         if (esfera) {
                             cubo.removeChild(esfera);
                         }
-                        esferaCreada = false;
+                        cuboCreado = false;
                     }
                 });
             })(cubo);
