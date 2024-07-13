@@ -21,7 +21,7 @@ AFRAME.registerComponent('cubos', {
                 var cuboCreado = false;
                 var colorIndex = colores.indexOf(color);
                 cubo.addEventListener('click', function() {
-                    if (!esferaCreada) {
+                    if (!cuboCreado) {
                     var esfera = document.createElement('a-box');
                     esfera.setAttribute('position', '0.9 0 0.9');
                     esfera.setAttribute('radius', '0.5');
