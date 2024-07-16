@@ -15,7 +15,7 @@ AFRAME.registerComponent('change-wall-color-yellow', {
       this.cooldown = true;
   
       var walls = document.querySelectorAll('#wall1, #wall2, #wall3, #wall4');
-  
+      
       walls.forEach(wall => {
         wall.setAttribute('material', 'color', this.color); // Cambiar el color
       });
@@ -24,5 +24,4 @@ AFRAME.registerComponent('change-wall-color-yellow', {
         this.cooldown = false;
       }, 300);
     }
-  });
-  
+  });  
