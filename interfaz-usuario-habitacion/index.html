@@ -19,10 +19,11 @@
   <a-scene environment="preset: tron;">
     <a-assets>
       <a-asset-item id="figura1" src="figuras3d/color_.glb"></a-asset-item>
-      <a-asset-item id="figura2" src="figuras3d/fruit.glb"></a-asset-item>
+      <a-asset-item id="figura2" src="figuras3d/caja.glb"></a-asset-item>
       <a-asset-item id="figura3" src="figuras3d/watermelon.glb"></a-asset-item>
       <a-asset-item id="figura4" src="figuras3d/focus.glb"></a-asset-item>
       <a-asset-item id="figura5" src="figuras3d/tejas.glb"></a-asset-item>
+      <a-asset-item id="figura6" src="figuras3d/speaker.glb"></a-asset-item>
       <audio id="grab-sound" src="sounds/stranger-things.mp3"></audio>
       <img id="floor" src="assets/floor-texture.jpg">
     </a-assets>
@@ -43,13 +44,13 @@
     </a-entity>
 
     <!-- Menú principal -->
-    <a-entity position="0 0 0" shelf="objects: #figura1, #figura2, #figura3, #figura4, #figura5; names: Cambiar Color, Apagar luces, Activar sonido, Agregar Objeto, Quitar Techo">
-      <a-sphere position="-0.2 1.5 -0.5" radius="0.4" material="color: #654321; side: double; transparent: true; opacity: 0.4">
+    <a-entity position="0 0 0" shelf="objects: #figura1, #figura2, #figura3, #figura4, #figura5, #figura6; names: Cambiar Color, Apagar luces, Activar sonido, Agregar Objeto, Quitar Techo, caja">
+      <a-sphere position="-0.2 1.5 -0.5" radius="0.45" material="color: #654321; side: double; transparent: true; opacity: 0.4">
         <a-entity option="figure: #figura1; name: Cambiar Color; pinchable: true; scale: 0.02 0.02 0.02; text-scale: 25 25 25; text-position: 0 6 0" position="-0.25 0 0" change-wall-color></a-entity>
-        <a-entity option="figure: #figura4; name: Apagar luces; pinchable: true; scale: 0.1 0.1 0.1; text-scale: 7 7 7; text-position: 0 1.3 0" position="0 0 0" toggle-light></a-entity>
-        <a-entity option="figure: #figura3; name: Activar sonido; pinchable: true; scale: 0.3 0.3 0.3; text-scale: 3 3 3; text-position: 0 0.3 0" position="0.25 0 0" sound-effects></a-entity>
+        <a-entity option="figure: #figura4; name: Apagar luces; pinchable: true; scale: 0.1 0.1 0.1; text-scale: 6 6 6; text-position: 0 1.3 0" position="0 0 0" toggle-light></a-entity>
+        <a-entity option="figure: #figura6; name: Activar sonido; pinchable: true; scale: 0.08 0.08 0.08; text-scale: 13 13 13; text-position: 0 4 0" position="0.25 -0.17 0" sound-effects></a-entity>
         <a-entity option="figure: #figura5; name: Quitar Techo; pinchable: true; scale: 0.01 0.01 0.01; text-scale: 55 55 55; text-position: 0 9 0" position="0 0.25 0" remove-roof></a-entity>
-        <a-entity option="figure: #figura2; name: Agregar Objeto; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" position="0 -0.25 0" toggle-box></a-entity>
+        <a-entity option="figure: #figura2; name: Agregar Objeto; pinchable: true; scale: 0.06 0.06 0.06; text-scale: 9 9 9; text-position: 0 2 0" position="0 -0.25 0" toggle-box></a-entity>
       </a-sphere>
     </a-entity>
 

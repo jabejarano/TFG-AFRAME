@@ -17,17 +17,28 @@ AFRAME.registerComponent('toggle-box', {
     this.cooldown = true;
 
     var sceneEl = this.el.sceneEl;
-    this.box = document.createElement('a-box');
-    this.box.setAttribute('position', { x: 0.6, y: 0.4, z: -1 });
-    this.box.setAttribute('width', 0.4);
-    this.box.setAttribute('height', 0.4);
-    this.box.setAttribute('depth', 0.4);
-    this.box.setAttribute('material', 'color', '#4CC3D9');
-    sceneEl.appendChild(this.box);
+
+    // Verificar si ya existe una caja y eliminarla
+    if (this.box) {
+      sceneEl.removeChild(this.box);
+      this.box = null;
+    }
+
+    // Crear y añadir una nueva caja
+    var box = document.createElement('a-box');
+    box.setAttribute('position', { x: 0.6, y: 0.4, z: -1 });
+    box.setAttribute('width', 0.4);
+    box.setAttribute('height', 0.4);
+    box.setAttribute('depth', 0.4);
+    box.setAttribute('material', 'color', '#4CC3D9');
+    sceneEl.appendChild(box);
+
+    // Guardar la referencia de la nueva caja creada
+    this.box = box;
 
     setTimeout(() => {
       this.cooldown = false;
-    }, 100);
+    }, 300); // Tiempo de enfriamiento
   },
 
   removeBox: function () {
@@ -41,6 +52,6 @@ AFRAME.registerComponent('toggle-box', {
 
     setTimeout(() => {
       this.cooldown = false;
-    }, 100);
+    }, 300); // Tiempo de enfriamiento
   }
 });
