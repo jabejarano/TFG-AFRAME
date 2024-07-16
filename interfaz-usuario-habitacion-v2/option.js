@@ -40,15 +40,6 @@ AFRAME.registerComponent('option', {
         entity.setAttribute('gltf-model', data.figure);
         entity.setAttribute('scale', data.scale);  // Aplicar la escala proporcionada
 
-        // Añadir la animación de rotación
-        // entity.setAttribute('animation', {
-         // property: 'rotation',
-          // to: '0 360 0',
-          // loop: true,
-         // dur: 10000,
-         // easing: 'linear' 
-       // });
-
         // Añadir el texto encima del modelo
         var text = document.createElement('a-entity');
         text.setAttribute('text', {
@@ -79,7 +70,6 @@ AFRAME.registerComponent('option', {
     var el = evt.target;
     var localPosition = this.localPosition;
 
-    // Copiar la posición global del selector al sistema de coordenadas local
     localPosition.copy(evt.detail.position);
     this.el.object3D.updateMatrixWorld();
     this.el.object3D.worldToLocal(localPosition);
