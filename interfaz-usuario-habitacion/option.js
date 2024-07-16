@@ -1,8 +1,8 @@
 AFRAME.registerComponent('option', {
   schema: {
-    figure: { type: 'string' },
-    name: { type: 'string' },
-    pinchable: { type: 'boolean', default: false },
+    figure: { type: 'string' }, // URL del model GLTF
+    name: { type: 'string' }, // Nombre de la acción que hace el objeto
+    pinchable: { type: 'boolean', default: false }, // Si es pinchable o no 
     scale: { type: 'string', default: '0.2 0.2 0.2' },  // Parámetro de escala
     textScale: { type: 'string', default: '2 2 2' },   // Parámetro de escala del texto
     textPosition: { type: 'string', default: '0 0.7 0' }  // Parámetro de posición del texto
