@@ -6,31 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto TFG</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!-- Cabecera -->
     <header class="header">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <span>José Antonio Bejarano Sigüenza</span>
+            </div>
+            <div class="navbar-right">
+                <a href="#descripcion">Descripción</a>
+                <a href="#archivos">Archivos</a>
+                <a href="#demos">Demos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
         <h1>Interfaz de usuario basado en seguimiento de manos para realidad extendida</h1>
     </header>
 
     <!-- Contenido principal -->
     <main class="main-content">
-        <section class="section">
+        <section id="descripcion" class="section">
             <h2>Descripción del Proyecto</h2>
             <p>Este proyecto se enfoca en la construcción de un conjunto de componentes para crear menús interactivos en realidad virtual, utilizando el seguimiento de manos como método exclusivo de interacción.</p>
         </section>
 
-        <section class="section">
+        <section id="archivos" class="section">
             <h2>Archivos</h2>
-            <ul>
-                <li><a href="https://github.com/jabejarano/TFG-AFRAME" target="_blank">GitHub</a></li>
-                <li><a href="https://jabejarano.github.io/TFG-AFRAME/Interfaz_de_usuario_basado_en_seguimiento_de_manos_para_realidad_extendida.pdf" target="_blank">Memoria</a></li>
-                <li><a href="" target="_blank">Presentación</a></li>
-            </ul>
+            <div class="demos">
+                <div class="demo">
+                    <a href="https://github.com/jabejarano/TFG-AFRAME" target="_blank">
+                        <img src="github.png" alt="GitHub">
+                    </a>
+                    <p>GitHub</p>
+                </div>
+                <div class="demo">
+                    <a href="https://jabejarano.github.io/Interfaz_de_usuario_basado_en_seguimiento_de_manos_para_realidad_extendida.pdf" target="_blank">
+                        <img src="memoria.png" alt="Memoria">
+                    </a>
+                    <p>Memoria</p>
+                </div>
+                <div class="demo">
+                    <a href="https://docs.google.com/presentation/d/1bARF1rr7GsfaDpmzynkco3UfcJY_e5VxJmy52JgC0Cg/edit#slide=id.g2ebe9044005_0_321" target="_blank">
+                        <img src="presentacion.jpg" alt="Presentación">
+                    </a>
+                    <p>Presentación</p>
+                </div>
+            </div>
         </section>
 
-        <section class="section">
+        <section id="demos" class="section">
             <h2>Demos</h2>
             <div class="demos">
                 <div class="demo">
@@ -56,7 +83,7 @@
     </main>
 
     <!-- Pie de página -->
-    <footer class="footer">
+    <footer id="contacto" class="footer">
         <p>Contacto: <a href="mailto:96siguenza@gmail.com">96siguenza@gmail.com</a></p>
         <p><a href="https://www.linkedin.com/in/jose-antonio-bejarano-siguenza-370144188/" target="_blank">LinkedIn</a></p>
     </footer>
