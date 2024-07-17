@@ -37,7 +37,7 @@ AFRAME.registerComponent('menu-music', {
         // Añadir el texto encima de la esfera
         var text = document.createElement('a-entity');
         text.setAttribute('text', {
-          value: 'Menu Música',
+          value: 'Menu Musica',
           align: 'center',
           color: '#FFFFFF',
           width: 1
