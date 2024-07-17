@@ -30,7 +30,7 @@ AFRAME.registerComponent('creador', {
     var object = document.createElement('a-entity');
     object.setAttribute('geometry', `primitive: ${this.data.type}`);
     object.setAttribute('scale', '0.5 0.5 0.5');
-    object.setAttribute('position', '0 1 -0.5');
+    object.setAttribute('position', '0 1.2 -2');
     object.setAttribute('material', 'color: #4CC3D9');
     sceneEl.appendChild(object);
 
