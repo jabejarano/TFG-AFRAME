@@ -47,17 +47,17 @@ AFRAME.registerComponent('menu-light', {
         menuSphere.appendChild(text);
   
         var option1 = document.createElement('a-entity');
-        option1.setAttribute('option', 'figure: #figura1; name: Apagar/Encender luz; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option1.setAttribute('option', 'figure: #figura1; name: Apagar/Encender luz; pinchable: true; scale: 0.05 0.05 0.05; text-scale: 7 7 7; text-position: 0 1.3 0');
         option1.setAttribute('position', '0 0.1 0');
         option1.setAttribute('toggle-light', '');
   
         var option2 = document.createElement('a-entity');
-        option2.setAttribute('option', 'figure: #figura2; name: Luz roja; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option2.setAttribute('option', 'figure: #figura1; name: Luz roja; pinchable: true; scale: 0.05 0.05 0.05; text-scale: 7 7 7; text-position: 0 1.3 0');
         option2.setAttribute('position', '0 -0.1 0');
         option2.setAttribute('toggle-red-light', '');
   
         var option3 = document.createElement('a-entity');
-        option3.setAttribute('option', 'figure: #figura3; name: Bajar intensidad luz; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option3.setAttribute('option', 'figure: #figura1; name: Bajar intensidad luz; pinchable: true; scale: 0.05 0.05 0.05; text-scale: 7 7 7; text-position: 0 1.3 0');
         option3.setAttribute('position', '0 0 0.1');
         option3.setAttribute('toggle-light-intensity', '');
   

@@ -27,7 +27,7 @@ AFRAME.registerComponent('menu-music', {
       } else {
         // Crear entidad shelf
         var shelf = document.createElement('a-entity');
-        shelf.setAttribute('shelf', 'objects: #figura1, #figura2, #figura3; names: Stranger Things, Mario Bros, Mario Jump');
+        shelf.setAttribute('shelf', 'objects: #figura1, #figura2, #figura5; names: Stranger Things, Mario Bros, Mario Jump');
   
         var menuSphere = document.createElement('a-entity');
         menuSphere.setAttribute('geometry', 'primitive: sphere; radius: 0.2');
@@ -46,17 +46,17 @@ AFRAME.registerComponent('menu-music', {
         menuSphere.appendChild(text);
   
         var option1 = document.createElement('a-entity');
-        option1.setAttribute('option', 'figure: #figura1; name: Stranger Things; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option1.setAttribute('option', 'figure: #figura5; name: Stranger Things; pinchable: true; scale: 0.02 0.02 0.02; text-scale: 13 13 13; text-position: 0 4 0');
         option1.setAttribute('position', '0 0.1 0');
         option1.setAttribute('sound-stranger-things', '');
   
         var option2 = document.createElement('a-entity');
-        option2.setAttribute('option', 'figure: #figura2; name: Mario Bros; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option2.setAttribute('option', 'figure: #figura5; name: Mario Bros; pinchable: true; scale: 0.02 0.02 0.02; text-scale: 13 13 13; text-position: 0 4 0');
         option2.setAttribute('position', '0 -0.1 0');
         option2.setAttribute('sound-mario-bros', '');
   
         var option3 = document.createElement('a-entity');
-        option3.setAttribute('option', 'figure: #figura3; name: Mario Jump; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option3.setAttribute('option', 'figure: #figura5; name: Mario Jump; pinchable: true; scale: 0.02 0.02 0.02; text-scale: 13 13 13; text-position: 0 4 0');
         option3.setAttribute('position', '0 0 0.1');
         option3.setAttribute('sound-mario-jump', '');
   

@@ -37,10 +37,11 @@
 <body>
   <a-scene environment="preset: tron;">
     <a-assets>
-      <a-asset-item id="figura1" src="figuras3d/drone.glb"></a-asset-item>
-      <a-asset-item id="figura2" src="figuras3d/fruit.glb"></a-asset-item>
-      <a-asset-item id="figura3" src="figuras3d/watermelon.glb"></a-asset-item>
-      <a-asset-item id="figura4" src="figuras3d/focus.glb"></a-asset-item>
+      <a-asset-item id="figura1" src="figuras3d/focus.glb"></a-asset-item>
+      <a-asset-item id="figura2" src="figuras3d/color_.glb"></a-asset-item>
+      <a-asset-item id="figura3" src="figuras3d/tejas.glb"></a-asset-item>
+      <a-asset-item id="figura4" src="figuras3d/caja.glb"></a-asset-item>
+      <a-asset-item id="figura5" src="figuras3d/speaker.glb"></a-asset-item>
       <audio id="grab-sound" src="sounds/stranger-things.mp3"></audio>
       <audio id="mario-sound" src="sounds/mario-bros.mp3"></audio>
       <audio id="mario-jump-sound" src="sounds/mario-bros-jump.mp3"></audio>
@@ -65,11 +66,11 @@
     <!-- Opciones dentro de la caja -->
     <a-entity position="0 0 0" shelf="objects: #figura1, #figura2, #figura3, #figura4, #figura5; names: Iluminación, Color Pared, Pared, Añadir Objeto, Otro">
       <a-box position="0 1.3 -0.3" depth="0.25" height="0.3" width="1.45" material="color: #654321; side: double; transparent: true; opacity: 0.4">
-        <a-entity option="figure: #figura4; name: Iluminacion; pinchable: true; scale: 0.1 0.1 0.1; text-scale: 7 7 7; text-position: 0 1.3 0" menu-light="position: -0.75 1.6 -0.5" position="-0.65 0 0" ></a-entity>
-        <a-entity option="figure: #figura1; name: Color Pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall-color="position: -0.4 1.6 -0.5" position="-0.3 0 0" ></a-entity>
-        <a-entity option="figure: #figura3; name: Quitar pared; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-wall="position: 0 1.6 -0.5" position="0 0 0" ></a-entity>
-        <a-entity option="figure: #figura2; name: Añadir Objeto; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-object="position: 0.35 1.6 -0.5" position="0.3 0 0"></a-entity>
-        <a-entity option="figure: #figura1; name: Musica; pinchable: true; scale: 0.25 0.25 0.25; text-scale: 3 3 3; text-position: 0 0.5 0" menu-music="position: 0.68 1.6 -0.5" position="0.55 0 0"></a-entity>
+        <a-entity option="figure: #figura1; name: Iluminacion; pinchable: true; scale: 0.1 0.1 0.1; text-scale: 7 7 7; text-position: 0 1.3 0" menu-light="position: -0.75 1.6 -0.5" position="-0.65 0 0" ></a-entity>
+        <a-entity option="figure: #figura2; name: Color Pared; pinchable: true; scale: 0.02 0.02 0.02; text-scale: 25 25 25; text-position: 0 6 0" menu-wall-color="position: -0.4 1.6 -0.5" position="-0.3 0 0" ></a-entity>
+        <a-entity option="figure: #figura3; name: Quitar pared; pinchable: true; scale: 0.01 0.01 0.01; text-scale: 55 55 55; text-position: 0 9 0" menu-wall="position: 0 1.6 -0.5" position="0 0 0" ></a-entity>
+        <a-entity option="figure: #figura4; name: Agregar Objeto; pinchable: true; scale: 0.06 0.06 0.06; text-scale: 9 9 9; text-position: 0 2 0" menu-object="position: 0.35 1.6 -0.5" position="0.3 0 0"></a-entity>
+        <a-entity option="figure: #figura5; name: Musica; pinchable: true; scale: 0.06 0.06 0.06; text-scale: 13 13 13; text-position: 0 4 0" menu-music="position: 0.68 1.6 -0.5" position="0.55 -0.12 0"></a-entity>
       </a-box>
     </a-entity>
 

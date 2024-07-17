@@ -46,18 +46,18 @@ AFRAME.registerComponent('menu-wall', {
         menuSphere.appendChild(text);
   
         var option1 = document.createElement('a-entity');
-        option1.setAttribute('option', 'figure: #figura1; name: Quitar pared trasera; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
-        option1.setAttribute('position', '0 0.1 0');
+        option1.setAttribute('option', 'figure: #figura3; name: Quitar pared trasera; pinchable: true; scale: 0.006 0.006 0.006; text-scale: 55 55 55; text-position: 0 9 0');
+        option1.setAttribute('position', '0 0.13 -0.02');
         option1.setAttribute('remove-back-wall', '');
   
         var option2 = document.createElement('a-entity');
-        option2.setAttribute('option', 'figure: #figura2; name: Quitar techo; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
-        option2.setAttribute('position', '0 -0.1 0');
+        option2.setAttribute('option', 'figure: #figura3; name: Quitar techo; pinchable: true; scale: 0.006 0.006 0.006; text-scale: 55 55 55; text-position: 0 9 0');
+        option2.setAttribute('position', '0 -0.12 0');
         option2.setAttribute('remove-roof', '');
   
         var option3 = document.createElement('a-entity');
-        option3.setAttribute('option', 'figure: #figura3; name: Quitar pared de frente; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
-        option3.setAttribute('position', '0 0 0.1');
+        option3.setAttribute('option', 'figure: #figura3; name: Quitar pared de frente; pinchable: true; scale: 0.006 0.006 0.006; text-scale: 55 55 55; text-position: 0 9 0');
+        option3.setAttribute('position', '0 0.05 0.1');
         option3.setAttribute('remove-front-wall', '');
   
         menuSphere.appendChild(option1);

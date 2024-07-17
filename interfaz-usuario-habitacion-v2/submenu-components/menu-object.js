@@ -27,7 +27,7 @@ AFRAME.registerComponent('menu-object', {
       } else {
         // Crear entidad shelf
         var shelf = document.createElement('a-entity');
-        shelf.setAttribute('shelf', 'objects: #figura1, #figura2, #figura3; names: Sub Opcion A, Sub Opcion B, Sub Opcion C');
+        shelf.setAttribute('shelf', 'objects: #figura1, #figura2, #figura4; names: Sub Opcion A, Sub Opcion B, Sub Opcion C');
   
         var menuSphere = document.createElement('a-entity');
         menuSphere.setAttribute('geometry', 'primitive: sphere; radius: 0.2');
@@ -46,17 +46,17 @@ AFRAME.registerComponent('menu-object', {
         menuSphere.appendChild(text);
   
         var option1 = document.createElement('a-entity');
-        option1.setAttribute('option', 'figure: #figura1; name: Crear caja; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option1.setAttribute('option', 'figure: #figura4; name: Crear caja; pinchable: true; scale: 0.03 0.03 0.03; text-scale: 9 9 9; text-position: 0 2 0');
         option1.setAttribute('position', '0 0.1 0');
         option1.setAttribute('toggle-box', ''); // Añadir un objeto box
   
         var option2 = document.createElement('a-entity');
-        option2.setAttribute('option', 'figure: #figura2; name: Crear cono; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option2.setAttribute('option', 'figure: #figura4; name: Crear cono; pinchable: true; scale: 0.03 0.03 0.03; text-scale: 9 9 9; text-position: 0 2 0');
         option2.setAttribute('position', '0 -0.1 0');
         option2.setAttribute('toggle-cone', ''); // Añadir un objeto cone
   
         var option3 = document.createElement('a-entity');
-        option3.setAttribute('option', 'figure: #figura3; name: Crear cilindro; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option3.setAttribute('option', 'figure: #figura4; name: Crear cilindro; pinchable: true; scale: 0.03 0.03 0.03; text-scale: 9 9 9; text-position: 0 2 0');
         option3.setAttribute('position', '0 0 0.1');
         option3.setAttribute('toggle-cylinder', ''); // Añadir un objeto cylinder
   

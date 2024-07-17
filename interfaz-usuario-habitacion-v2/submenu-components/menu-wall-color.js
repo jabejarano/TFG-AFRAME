@@ -47,18 +47,18 @@ AFRAME.registerComponent('menu-wall-color', {
         menuSphere.appendChild(text);
   
         var option1 = document.createElement('a-entity');
-        option1.setAttribute('option', 'figure: #figura1; name: Color azul; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
+        option1.setAttribute('option', 'figure: #figura2; name: Color azul; pinchable: true; scale: 0.01 0.01 0.01; text-scale: 27 27 27; text-position: 0 6 0');
         option1.setAttribute('position', '0 0.1 0');
         option1.setAttribute('change-wall-color-blue', '');
   
         var option2 = document.createElement('a-entity');
-        option2.setAttribute('option', 'figure: #figura2; name: Color verde; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
-        option2.setAttribute('position', '0 -0.1 0');
+        option2.setAttribute('option', 'figure: #figura2; name: Color verde; pinchable: true; scale: 0.01 0.01 0.01; text-scale: 27 27 27; text-position: 0 6 0');
+        option2.setAttribute('position', '-0.1 -0.1 0');
         option2.setAttribute('change-wall-color-green', '');
   
         var option3 = document.createElement('a-entity');
-        option3.setAttribute('option', 'figure: #figura3; name: Color amarillo; pinchable: true; scale: 0.15 0.15 0.15; text-scale: 2 2 2; text-position: 0 0.5 0');
-        option3.setAttribute('position', '0 0 0.1');
+        option3.setAttribute('option', 'figure: #figura2; name: Color amarillo; pinchable: true; scale: 0.01 0.01 0.01; text-scale: 27 27 27; text-position: 0 6 0');
+        option3.setAttribute('position', '0.1 0 0.1');
         option3.setAttribute('change-wall-color-yellow', '');
   
         menuSphere.appendChild(option1);
