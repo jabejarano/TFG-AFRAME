@@ -7,9 +7,9 @@ Este trabajo de fin de grado (TFG) se centra en la exploración de la API de seg
 ## Prototipos
 
 El código de los prototipos que verás más abajo se encuentran en las carpetas siguientes:
-- [Prototipo 1](interfaz-usuario-habitacion)
-- [Prototipo 2](interfaz-usuario-habitacion-v2)
-- [Prototipo 3](interfaz-usuario-creador-objetos)
+- [La habitación de las interacciones](interfaz-usuario-habitacion)
+- [La habitación de los submenús](interfaz-usuario-habitacion-v2)
+- [Creador de objetos](interfaz-usuario-creador-objetos)
 
 Estos prototipos se han creado para comprobar que el conjunto de componentes funciona de manera integrada.
 
