@@ -30,4 +30,4 @@ Para más información te adjunto la página web del proyecto donde encontrarás
 
 ## Licencia
 
-Este proyecto es software gratuito y se distribuye bajo una [licencia MIT](LICENSE).
+Este proyecto es software gratuito y se distribuye bajo una [licencia MIT](LICENCIA).
