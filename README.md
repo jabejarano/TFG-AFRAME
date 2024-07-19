@@ -24,6 +24,10 @@ Estos prototipos se han creado para comprobar que el conjunto de componentes fun
   <img src="interfaz-creador-objetos.gif" alt="Prototipo 3" width="30%">
 </p>
 
+## Para más información
+
+Para más información te adjunto la página web del proyecto donde encontrarás más información como demos y vídeos sobre los prototipos: [https://jabejarano.github.io](https://jabejarano.github.io)
+
 ## Licencia
 
 Este proyecto es software gratuito y se distribuye bajo una [licencia MIT](LICENSE).
