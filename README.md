@@ -1,5 +1,9 @@
 # Interfaz de usuario basado en seguimiento de manos para realidad extendida
 
+## Descripción
+
+Este trabajo de fin de grado (TFG) se centra en la exploración de la API de seguimiento de manos (WebXR) en el navegador. Utilizando A-Frame, se ha construido una "caja de herramientas" de componentes que utilizan el reconocimiento de manos, funcionando en realidad virtual y permitiendo la interacción de las aplicaciones.
+
 ## Prototipos
 
 <p align="center">
