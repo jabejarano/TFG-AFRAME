@@ -2,9 +2,11 @@
 
 ## Prototipos
 
-![Prototipo 1](interfaz-creador-objetos.gif)
-![Prototipo 2](interfaz-habitacion.gif)
-![Prototipo 3](habitacionv2.gif)
+<p align="center">
+  <img src="ruta/al/gif1.gif" alt="Prototipo 1" width="30%">
+  <img src="ruta/al/gif2.gif" alt="Prototipo 2" width="30%">
+  <img src="ruta/al/gif3.gif" alt="Prototipo 3" width="30%">
+</p>
 
 ## Licencia
 
