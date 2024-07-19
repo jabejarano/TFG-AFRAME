@@ -2,8 +2,8 @@
 
 ## Prototipos
 
-![Prototipo 1](ruta/al/gif1.gif)
-![Prototipo 2](ruta/al/gif2.gif)
+![Prototipo 1](interfaz-creador-objetos.gif)
+![Prototipo 2](interfaz-habitacion.gif)
 ![Prototipo 3](ruta/al/gif3.gif)
 
 ## Licencia
