@@ -4,6 +4,11 @@
 
 Este trabajo de fin de grado (TFG) se centra en la exploración de la API de seguimiento de manos (WebXR) en el navegador. Utilizando A-Frame, se ha construido una "caja de herramientas" de componentes que utilizan el reconocimiento de manos, funcionando en realidad virtual y permitiendo la interacción de las aplicaciones.
 
+Dentro de la carpeta [caja de herramientas](caja-de-herramientas) se encuentran todos los componentes creados, divididos en tres carpetas:
+- **menú principal**: contiene los tres componentes necesarios para componer los menús principales.
+- **menús específicos**: si se desean crear submenús con más objetos para tener más opciones.
+- **menús actuadores**: incluye todos los componentes que interactúan de una forma u otra con la escena.
+
 ## Prototipos
 
 El código de los prototipos que verás más abajo se encuentran en las carpetas siguientes:
